@@ -1,4 +1,5 @@
 <template>
+    
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
         data-image-height="1320">
 
@@ -21,6 +22,7 @@
             </div>
         </div>
     </section>
+    <News></News>
     <TeamsList></TeamsList>
     <section class="u-clearfix u-section-3" id="carousel_db91">
         <div class="u-expanded-width u-palette-5-dark-3 u-shape u-shape-rectangle u-shape-1"></div>
@@ -132,6 +134,7 @@
 <script setup>
 import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
+import News from './News.vue'
 import { defineComponent } from 'vue';
 
 defineComponent({

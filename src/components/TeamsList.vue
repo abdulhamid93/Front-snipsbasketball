@@ -53,6 +53,7 @@ import { baseURL } from '@/config';
 export default {
 
   name: 'TeamsList',
+  
   data() {
     return {
       token: null,
@@ -61,25 +62,7 @@ export default {
       ],
     };
   },
-  setup() {
-    const route = useRoute();
-    const token = ref('');
-    const tokenExists = ref(false);
-    // // Set the token initially
-    // token.value = route.params.token;
-
-    // Watch for changes to the route and update the token
-    onMounted(() => {
-
-      token.value = route.params.token;
-      if (token.value !== undefined && token.value !== null && token.value !== '')
-        this.token = token.value;
-      console.log('token.value' + token.value);
-    });
-
-
-
-  },
+  
 
 
   created: function () {
@@ -93,11 +76,19 @@ export default {
       { id: 7, name: 'Hmem', logo: baseURL+'/storage/general/hmemlogo2019.png' },
       { id: 8, name: 'Hoops', logo: baseURL+'/storage/general/hoops-logo.png' },
       { id: 9, name: 'Mayrouba', logo: baseURL+'/storage/general/mayrouba.png' },
-      { id: 10, name: 'NSA', logo: baseURL+'/storage/general/nsa.png' },
+      { id: 10, name: 'NSA', logo: baseURL+'/storage/general/nsa-1.jpg' },
 
     ];
+
   },
   mounted: function(){
+    const route = useRoute();
+    const token = ref('');
+    const tokenExists = ref(false); 
+    token.value = route.params.token;
+       if (token.value !== undefined && token.value !== null && token.value !== '')
+       this.token = token.value;
+      console.log('token.value' + token.value);
     const echo = new LaravelEcho({
         broadcaster: 'pusher',
         key: '46bb874b7ddecccc4d34',
@@ -124,7 +115,7 @@ export default {
       try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id, token: token, ip: '192.0.0.0' }
+          { team_id: team.id, token: '787', ip: '192.0.0.0' }
         );
       } catch (error) {
         console.error('Error sending broadcast:', error);

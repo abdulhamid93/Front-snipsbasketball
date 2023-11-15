@@ -2,8 +2,8 @@
     <v-app>
         <header data-sticky="false" data-sticky-checkpoint="200" data-responsive="991"
             class="page-header page-header--light">
-            <div class="container">
-                <!-- LOGO-->
+            <!-- <div class="container">
+               
                 <div class="page-header__left">
                     <a href="/" class="page-logo">
                         <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="page-header__right">
-                    <!-- MOBILE MENU-->
+                    
                     <div class="navigation-toggle navigation-toggle--dark" style="display: none"><span></span></div>
                     <div class="pull-left">
                     </div>
@@ -26,7 +26,7 @@
                     <span class="close-search">×</span>
                 </form>
                 <div class="search-result"></div>
-            </div>
+            </div> -->
         </header>
 
         <v-main>
