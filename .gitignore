@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # env files
 .env*
+
+.history
+history

@@ -1,5 +1,7 @@
 <template>
     <div class="home">
+        <div>
+  </div>
         <HelloWorld msg="Welcome to Your Vue.js App" />
     </div>
 </template>
@@ -16,4 +18,5 @@ defineComponent({
         HelloWorld,
     },
 });
+
 </script>

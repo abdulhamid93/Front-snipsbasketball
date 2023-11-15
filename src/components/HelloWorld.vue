@@ -1,4 +1,6 @@
 <template>
+    <button @click="sendBroadcast">Click me to broadcast</button>
+    <p>{{ message }}</p>
     <v-container>
         <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
                 data-image-height="1320">
@@ -262,6 +264,19 @@
 <script setup>
 import logoSvg from '@/assets/logo.svg';
 import { defineComponent } from 'vue';
+
+import axios from 'axios';
+
+const sendBroadcast = async () => {
+
+  try {
+    const response = await axios.post('https://staging.snipsbasketball.com/api/v1/button/clicked' , { team_id: 200 });
+    // console.log(response.data);
+  } catch (error) {
+    console.error('Error sending broadcast:', error);
+  }
+};
+
 defineComponent({
     name: 'HelloWorld',
 
@@ -317,6 +332,48 @@ defineComponent({
                     'https://vuetifyjs.com/getting-started/frequently-asked-questions',
             },
         ],
+        myVariable: 'Initial Value',
     }),
+
+    methods: {
+        sendBroadcast,
+    },
+
 });
+
+import { ref, onMounted, onUnmounted } from 'vue';
+import LaravelEcho from "laravel-echo"
+import Pusher from 'pusher-js';
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+const message = ref('Waiting for broadcast...');
+
+onMounted(() => {
+
+    const echo = new LaravelEcho({
+        broadcaster: 'pusher',
+        key: '46bb874b7ddecccc4d34',
+        cluster: 'eu',
+        encrypted: true,
+    });
+
+  // Subscribe to the 'public-channel'
+  const channel = echo.channel('vote-channel');
+
+    // Listen for the 'ButtonClicked' event
+    channel.listen('.voted', (event) => {
+        message.value = event.message;
+        console.log(event);
+        console.log('event.data.message1');
+    });
+
+});
+
+onUnmounted(() => {
+  // Unsubscribe or perform cleanup if needed
+});
+
+
+
 </script>
