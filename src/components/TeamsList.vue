@@ -150,8 +150,5 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  // Unsubscribe or perform cleanup if needed
-});
 </script>
   
