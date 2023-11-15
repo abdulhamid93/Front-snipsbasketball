@@ -26,7 +26,7 @@
               data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
               <img :src="team.logo" alt="" />
             </span>
-            <h4 class="u-align-center u-text u-text-9">{{ team.name }}</h4>
+            <h4 class="u-align-center u-text u-text-9">{{ team.name }}-{{ token }}</h4>
             <a @click="sendBroadcast(team)"
               class="u-active-black u-btn vote-btn u-button-style u-hover-black u-palette-1-base u-btn-2">Vote</a>
             <p>{{ message }}</p>
@@ -47,62 +47,57 @@ import { baseURL } from '@/config';
 export default {
 
   name: 'TeamsList',
-  setup() {
-    const route = useRoute();
-    const token = ref('');
-
-    // Set the token initially
-    token.value = route.params.token;
-
-    // Watch for changes to the route and update the token
-    onMounted(() => {
-      token.value = route.params.token;
-      console.log('token.value' + token.value);
-    });
-
-    const tokenExists = ref(false);
-
-    // Check if the token exists
-    onMounted(() => {
-      tokenExists.value = token.value !== undefined && token.value !== null && token.value !== '';
-    });
-
-    // Additional setup logic if needed
-
-
-  },
   data() {
     return {
-      // token:null,
+      token: null,
       // tokenExists:false,
       teams: [
       ],
     };
   },
+  setup() {
+    const route = useRoute();
+    const token = ref('');
+    const tokenExists = ref(false);
+    // // Set the token initially
+    // token.value = route.params.token;
+
+    // Watch for changes to the route and update the token
+    onMounted(() => {
+
+      token.value = route.params.token;
+      if (token.value !== undefined && token.value !== null && token.value !== '')
+        this.token = token.value;
+      console.log('token.value' + token.value);
+    });
+
+
+
+  },
+
 
   created: function () {
     this.teams = [
-      { id: 1, name: 'AL RIYADI BASKETBALL', logo: '/storage/general/al-riyadi-basketball-logo.png' },
-      { id: 2, name: 'BEIRUT', logo: '${baseURL}/storage/general/beirut.png' },
-      { id: 3, name: 'Antranik', logo: '${baseURL}/storage/general/antranik.png' },
-      { id: 4, name: 'Champville', logo: '${baseURL}/storage/general/champvillelogo.png' },
-      { id: 5, name: 'Antonin', logo: '${baseURL}/storage/general/antonin.png' },
-      { id: 6, name: 'CS Sagesse', logo: '${baseURL}/storage/general/cs-sagesse-logo.png' },
-      { id: 7, name: 'Hmem', logo: '${baseURL}/storage/general/hmemlogo2019.png' },
-      { id: 8, name: 'Hoops', logo: '${baseURL}/storage/general/hoops-logo.png' },
-      { id: 9, name: 'Mayrouba', logo: '${baseURL}/storage/general/mayrouba.png' },
-      { id: 10, name: 'NSA', logo: '${baseURL}/storage/general/nsa.png' },
+      { id: 1, name: 'AL RIYADI BASKETBALL', logo: baseURL+'/storage/general/al-riyadi-basketball-logo.png' },
+      { id: 2, name: 'BEIRUT', logo: baseURL+'/storage/general/beirut.png' },
+      { id: 3, name: 'Antranik', logo: baseURL+'/storage/general/antranik.png' },
+      { id: 4, name: 'Champville', logo: baseURL+'/storage/general/champvillelogo.png' },
+      { id: 5, name: 'Antonin', logo: baseURL+'/storage/general/antonin.png' },
+      { id: 6, name: 'CS Sagesse', logo: baseURL+'/storage/general/cs-sagesse-logo.png' },
+      { id: 7, name: 'Hmem', logo: baseURL+'/storage/general/hmemlogo2019.png' },
+      { id: 8, name: 'Hoops', logo: baseURL+'/storage/general/hoops-logo.png' },
+      { id: 9, name: 'Mayrouba', logo: baseURL+'/storage/general/mayrouba.png' },
+      { id: 10, name: 'NSA', logo: baseURL+'/storage/general/nsa.png' },
 
     ];
   },
   methods: {
     async sendBroadcast(team) {
       console.log('Broadcasting for team:', team);
-
       try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id }
+          { team_id: team.id, token: token, ip: '192.0.0.0' }
         );
       } catch (error) {
         console.error('Error sending broadcast:', error);
@@ -150,8 +145,7 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  // Unsubscribe or perform cleanup if needed
-});
+
+
 </script>
   
