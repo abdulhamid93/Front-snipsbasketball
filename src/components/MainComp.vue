@@ -1,6 +1,4 @@
 <template>
-    <button @click="sendBroadcast">Click me to broadcast</button>
-    <p>{{ message }}</p>
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
         data-image-height="1320">
 
@@ -136,18 +134,6 @@ import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
 import { defineComponent } from 'vue';
 
-import axios from 'axios';
-
-const sendBroadcast = async () => {
-
-  try {
-    const response = await axios.post('https://staging.snipsbasketball.com/api/v1/button/clicked' , { team_id: 200 });
-    // console.log(response.data);
-  } catch (error) {
-    console.error('Error sending broadcast:', error);
-  }
-};
-
 defineComponent({
     name: 'MainComp',
 
@@ -176,11 +162,11 @@ onMounted(() => {
         encrypted: true,
     });
 
-  // Subscribe to the 'public-channel'
-  const channel = echo.channel('public-channel');
+  // Subscribe to the 'vote-channel'
+  const channel = echo.channel('vote-channel');
 
-    // Listen for the 'ButtonClicked' event
-    channel.listen('.button.clicked', (event) => {
+    // Listen for the 'vote.updated' event
+    channel.listen('.vote.updated', (event) => {
         message.value = event.message;
         console.log(event);
         console.log('event.data.message1');

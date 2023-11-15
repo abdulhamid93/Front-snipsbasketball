@@ -15,7 +15,7 @@
             our basketball updates.</p>
         </div>
       </div>
-      
+
       <div class="u-repeater u-repeater-1 teams">
         <div v-for="(team, index) in teams" :key="index"
           class="u-align-left u-border-5 u-border-no-bottom u-border-no-left u-border-no-right u-border-palette-1-base u-container-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-5 animated customAnimationIn-played"
@@ -27,8 +27,9 @@
               <img :src="team.logo" alt="" />
             </span>
             <h4 class="u-align-center u-text u-text-9">{{ team.name }}</h4>
-            <a @click="vote(team.name)"
+            <a @click="sendBroadcast(team)"
               class="u-active-black u-btn vote-btn u-button-style u-hover-black u-palette-1-base u-btn-2">Vote</a>
+            <p>{{ message }}</p>
           </div>
         </div>
       </div>
@@ -42,7 +43,7 @@ import axios from 'axios';
 import { defineComponent, ref, onMounted } from 'vue';
 
 import { useRoute } from 'vue-router';
-import { baseURL } from '@/config'; 
+import { baseURL } from '@/config';
 export default {
 
   name: 'TeamsList',
@@ -56,7 +57,7 @@ export default {
     // Watch for changes to the route and update the token
     onMounted(() => {
       token.value = route.params.token;
-      console.log('token.value'+token.value);
+      console.log('token.value' + token.value);
     });
 
     const tokenExists = ref(false);
@@ -68,7 +69,7 @@ export default {
 
     // Additional setup logic if needed
 
-    
+
   },
   data() {
     return {
@@ -80,21 +81,33 @@ export default {
   },
 
   created: function () {
-    this.teams= [
-        { id: 1, name: 'AL RIYADI BASKETBALL', logo: '/storage/general/al-riyadi-basketball-logo.png' },
-        { id: 2, name: 'BEIRUT', logo:  '${baseURL}/storage/general/beirut.png' },
-        { id: 3, name: 'Antranik', logo:  '${baseURL}/storage/general/antranik.png' },
-        { id: 4, name: 'Champville', logo: '${baseURL}/storage/general/champvillelogo.png' },
-        { id: 5, name: 'Antonin', logo:  '${baseURL}/storage/general/antonin.png' },
-        { id: 6, name: 'CS Sagesse', logo:'${baseURL}/storage/general/cs-sagesse-logo.png' },
-        { id: 7, name: 'Hmem', logo: '${baseURL}/storage/general/hmemlogo2019.png' },
-        { id: 8, name: 'Hoops', logo: '${baseURL}/storage/general/hoops-logo.png' },
-        { id: 9, name: 'Mayrouba', logo:  '${baseURL}/storage/general/mayrouba.png' },
-        { id: 10, name: 'NSA', logo:  '${baseURL}/storage/general/nsa.png' },
+    this.teams = [
+      { id: 1, name: 'AL RIYADI BASKETBALL', logo: '/storage/general/al-riyadi-basketball-logo.png' },
+      { id: 2, name: 'BEIRUT', logo: '${baseURL}/storage/general/beirut.png' },
+      { id: 3, name: 'Antranik', logo: '${baseURL}/storage/general/antranik.png' },
+      { id: 4, name: 'Champville', logo: '${baseURL}/storage/general/champvillelogo.png' },
+      { id: 5, name: 'Antonin', logo: '${baseURL}/storage/general/antonin.png' },
+      { id: 6, name: 'CS Sagesse', logo: '${baseURL}/storage/general/cs-sagesse-logo.png' },
+      { id: 7, name: 'Hmem', logo: '${baseURL}/storage/general/hmemlogo2019.png' },
+      { id: 8, name: 'Hoops', logo: '${baseURL}/storage/general/hoops-logo.png' },
+      { id: 9, name: 'Mayrouba', logo: '${baseURL}/storage/general/mayrouba.png' },
+      { id: 10, name: 'NSA', logo: '${baseURL}/storage/general/nsa.png' },
 
-      ];
+    ];
   },
   methods: {
+    async sendBroadcast(team) {
+      console.log('Broadcasting for team:', team);
+
+      try {
+        const response = await axios.post(
+          'https://staging.snipsbasketball.com/api/v1/vote',
+          { team_id: team.id }
+        );
+      } catch (error) {
+        console.error('Error sending broadcast:', error);
+      }
+    },
     async vote(teamName) {
       try {
         const response = await axios.post('/api/v1/voting', {
@@ -108,9 +121,37 @@ export default {
         // Handle errors
         console.error('Error voting:', error);
       }
+
     },
   },
-};
 
+};
+import LaravelEcho from 'laravel-echo';
+import Pusher from 'pusher-js';
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+const message = ref('Waiting for broadcast...');
+
+onMounted(() => {
+  const echo = new LaravelEcho({
+    broadcaster: 'pusher',
+    key: '46bb874b7ddecccc4d34',
+    cluster: 'eu',
+    encrypted: true,
+  });
+
+  // Subscribe to the 'vote-channel'
+  const channel = echo.channel('vote-channel');
+
+  // Listen for the 'vote.updated' event
+  channel.listen('.vote.updated', event => {
+    message.value = event.message;
+  });
+});
+
+onUnmounted(() => {
+  // Unsubscribe or perform cleanup if needed
+});
 </script>
   
