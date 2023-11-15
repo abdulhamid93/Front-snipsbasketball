@@ -96,7 +96,7 @@
                             <p class="u-custom-font u-font-montserrat u-text u-text-2"> Want to be the first to read our
                                 news? Subscribe to the newsletter to keep abreast of all events.</p>
                             <div class="u-expanded-width u-form u-form-1">
-                                <form action="#"
+                                <form action="https://forms.nicepagesrv.com/v2/form/process"
                                     class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" source="email"
                                     name="form" style="padding: 0px;">
                                     <div class="u-form-email u-form-group u-label-none">
@@ -190,7 +190,57 @@ defineComponent({
     name: 'HelloWorld',
 
     data: () => ({
-       
+        ecosystem: [
+            {
+                text: 'vuetify-loader',
+                href: 'https://github.com/vuetifyjs/vuetify-loader',
+            },
+            {
+                text: 'github',
+                href: 'https://github.com/vuetifyjs/vuetify',
+            },
+            {
+                text: 'awesome-vuetify',
+                href: 'https://github.com/vuetifyjs/awesome-vuetify',
+            },
+        ],
+        importantLinks: [
+            {
+                text: 'Documentation',
+                href: 'https://vuetifyjs.com',
+            },
+            {
+                text: 'Chat',
+                href: 'https://community.vuetifyjs.com',
+            },
+            {
+                text: 'Made with Vuetify',
+                href: 'https://madewithvuejs.com/vuetify',
+            },
+            {
+                text: 'Twitter',
+                href: 'https://twitter.com/vuetifyjs',
+            },
+            {
+                text: 'Articles',
+                href: 'https://medium.com/vuetify',
+            },
+        ],
+        whatsNext: [
+            {
+                text: 'Explore components',
+                href: 'https://vuetifyjs.com/components/api-explorer',
+            },
+            {
+                text: 'Select a layout',
+                href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
+            },
+            {
+                text: 'Frequently Asked Questions',
+                href:
+                    'https://vuetifyjs.com/getting-started/frequently-asked-questions',
+            },
+        ],
     }),
 });
 </script>

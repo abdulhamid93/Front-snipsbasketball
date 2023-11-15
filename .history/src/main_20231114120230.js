@@ -10,7 +10,6 @@ import   './assets/css/Home.css';
 import   './assets/css/nicepage.css';
 import   './assets/css/style.css';
 import   './assets/js/jquery.min.js';
-import   './assets/js/bootstrap.min.js';
 import   './assets/js/nicepage.js';
 
 const app = createApp(App);

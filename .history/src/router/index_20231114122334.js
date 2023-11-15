@@ -7,8 +7,8 @@ const routes = [
         component: () => import('../views/Home.vue'),
     },
     {
-        path: '/:token',
-        name: 'HomeVote',
+        path: '/{token}',
+        name: 'Home',
         component: () => import('../views/Home.vue'),
     },
     {
