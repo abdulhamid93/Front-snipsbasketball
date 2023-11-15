@@ -91,60 +91,6 @@
     },
   },
 };
-    // data: () => ({
-    //     teams :[
-    //     { name: 'AL RIYADI BASKETBALL', logo: 'https://staging.snipsbasketball.com/storage/general/al-riyadi-basketball-logo.png' },
-    //     { name: 'BEIRUT', logo: 'https://staging.snipsbasketball.com/storage/general/beirut.png' },
-    //     { name: 'Antranik', logo: 'https://staging.snipsbasketball.com/storage/general/antranik.png' },
-    //     { name: 'Champville', logo: 'https://staging.snipsbasketball.com/storage/general/champvillelogo.png' },
-    //     { name: 'Antonin', logo: 'https://staging.snipsbasketball.com/storage/general/antonin.png' },
-    //     { name: 'CS Sagesse', logo: 'https://staging.snipsbasketball.com/storage/general/cs-sagesse-logo.png' },
-    //     { name: 'Hmem', logo: 'https://staging.snipsbasketball.com/storage/general/hmemlogo2019.png' },
-    //     { name: 'Hoops', logo: 'https://staging.snipsbasketball.com/storage/general/hoops-logo.png' },
-    //     { name: 'Mayrouba', logo: 'https://staging.snipsbasketball.com/storage/general/mayrouba.png' },
-    //     { name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
-
-    //   ]
-    // }),
-    // setup() {
-    //   // Static list of teams
-    //   const teams = ref(
-    //     [
-    //     { name: 'AL RIYADI BASKETBALL', logo: 'https://staging.snipsbasketball.com/storage/general/al-riyadi-basketball-logo.png' },
-    //     { name: 'BEIRUT', logo: 'https://staging.snipsbasketball.com/storage/general/beirut.png' },
-    //     { name: 'Antranik', logo: 'https://staging.snipsbasketball.com/storage/general/antranik.png' },
-    //     { name: 'Champville', logo: 'https://staging.snipsbasketball.com/storage/general/champvillelogo.png' },
-    //     { name: 'Antonin', logo: 'https://staging.snipsbasketball.com/storage/general/antonin.png' },
-    //     { name: 'CS Sagesse', logo: 'https://staging.snipsbasketball.com/storage/general/cs-sagesse-logo.png' },
-    //     { name: 'Hmem', logo: 'https://staging.snipsbasketball.com/storage/general/hmemlogo2019.png' },
-    //     { name: 'Hoops', logo: 'https://staging.snipsbasketball.com/storage/general/hoops-logo.png' },
-    //     { name: 'Mayrouba', logo: 'https://staging.snipsbasketball.com/storage/general/mayrouba.png' },
-    //     { name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
-
-    //   ]
-    //   );
   
-    //   const vote = async (teamName) => {
-   
-    //     try {
-    //       const response = await axios.post('/api/v1/voting', {
-    //         team: teamName,
-    //         // Add any other data you need to send in the request body
-    //       });
-  
-    //       // Handle the response as needed
-    //       console.log('Vote successful:', response.data);
-    //     } catch (error) {
-    //       // Handle errors
-    //       console.error('Error voting:', error);
-    //     }
-    //   };
-  
-    //   return {
-    //     teams,
-    //     vote,
-    //   };
-    // },
-
   </script>
   
