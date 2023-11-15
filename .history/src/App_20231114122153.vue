@@ -5,7 +5,7 @@
             <div class="container">
                 <!-- LOGO-->
                 <div class="page-header__left">
-                    <a href="/" class="page-logo">
+                    <a href="https://staging.snipsbasketball.com" class="page-logo">
                         <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
                             height="50">
                     </a>

@@ -1,39 +1,28 @@
 <template>
     <v-app>
-        <header data-sticky="false" data-sticky-checkpoint="200" data-responsive="991"
-            class="page-header page-header--light">
-            <div class="container">
-                <!-- LOGO-->
-                <div class="page-header__left">
-                    <a href="/" class="page-logo">
-                        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
-                            height="50">
-                    </a>
-                </div>
-                <div class="page-header__right">
-                    <!-- MOBILE MENU-->
-                    <div class="navigation-toggle navigation-toggle--dark" style="display: none"><span></span></div>
-                    <div class="pull-left">
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
+        <v-app-bar app color="primary" dark>
+            <div class="d-flex align-center">
+                <v-img alt="Vuetify Logo" class="shrink mr-2" contain
+                    src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png" transition="scale-transition"
+                    width="40" />
+
+                <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="100"
+                    src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png" width="100" />
             </div>
-            <div class="super-search hide" data-search-url="https://staging.snipsbasketball.com/ajax/search">
-                <form class="quick-search" action="https://staging.snipsbasketball.com/search">
-                    <input type="text" name="q" placeholder="Type to search..." class="form-control search-input"
-                        autocomplete="off">
-                    <span class="close-search">×</span>
-                </form>
-                <div class="search-result"></div>
-            </div>
-        </header>
+
+            <v-spacer></v-spacer>
+
+            <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
+                <span class="mr-2">Latest Release</span>
+                <v-icon>mdi-open-in-new</v-icon>
+            </v-btn>
+        </v-app-bar>
 
         <v-main>
             <router-view />
         </v-main>
-        <footer class="page-footer bg-dark ">
-            <!-- <div class="container">
+        <footer class="page-footer bg-dark pt-50">
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6 col-12">
                         <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
@@ -58,7 +47,7 @@
                     </div>
 
                 </div>
-            </div> -->
+            </div>
             <div class="page-footer__bottom">
                 <div class="container">
                     <div class="row">
@@ -69,8 +58,23 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="page-footer__social">
-                                <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
-                                    alt="snipsbasketball" height="50">
+                                <ul class="social social--simple">
+                                    <li>
+                                        <a href="https://facebook.com" title="Facebook" target="_blank">
+                                            <i class="hi-icon fab fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com" title="Twitter" target="_blank">
+                                            <i class="hi-icon fab fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://youtube.com" title="Youtube" target="_blank">
+                                            <i class="hi-icon fab fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

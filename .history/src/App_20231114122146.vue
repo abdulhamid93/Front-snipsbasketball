@@ -1,33 +1,41 @@
 <template>
     <v-app>
-        <header data-sticky="false" data-sticky-checkpoint="200" data-responsive="991"
-            class="page-header page-header--light">
-            <div class="container">
-                <!-- LOGO-->
-                <div class="page-header__left">
-                    <a href="/" class="page-logo">
-                        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
-                            height="50">
-                    </a>
-                </div>
-                <div class="page-header__right">
-                    <!-- MOBILE MENU-->
-                    <div class="navigation-toggle navigation-toggle--dark" style="display: none"><span></span></div>
-                    <div class="pull-left">
-                    </div>
-                    <div class="clearfix"></div>
+        <header data-sticky="false" data-sticky-checkpoint="200" data-responsive="991" class="page-header page-header--light">
+        <div class="container">
+            <!-- LOGO-->
+            <div class="page-header__left">
+                <a href="https://staging.snipsbasketball.com" class="page-logo">
+                                            <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="50">
+                                    </a>
+            </div>
+            <div class="page-header__right">
+                <!-- MOBILE MENU-->
+                <div class="navigation-toggle navigation-toggle--dark" style="display: none"><span></span></div>
+                <div class="pull-left">
+                    
+                    
+                    
+                    
+                        
+                            
+                                
+                                
+                            
+                        
+                    
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="super-search hide" data-search-url="https://staging.snipsbasketball.com/ajax/search">
+            <div class="clearfix"></div>
+        </div>
+                    <div class="super-search hide" data-search-url="https://staging.snipsbasketball.com/ajax/search">
                 <form class="quick-search" action="https://staging.snipsbasketball.com/search">
-                    <input type="text" name="q" placeholder="Type to search..." class="form-control search-input"
-                        autocomplete="off">
+                    <input type="text" name="q" placeholder="Type to search..." class="form-control search-input" autocomplete="off">
                     <span class="close-search">×</span>
                 </form>
                 <div class="search-result"></div>
             </div>
-        </header>
+            </header>
 
         <v-main>
             <router-view />
