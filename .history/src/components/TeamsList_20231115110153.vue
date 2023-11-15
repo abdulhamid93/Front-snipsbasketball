@@ -12,7 +12,7 @@
             <p class="u-large-text u-text u-text-variant u-text-2">We're working on something awesome! <br>Stay tuned for our basketball updates.</p>
           </div>
         </div>
-        <div class="u-repeater u-repeater-1 teams">
+        <div class="u-repeater u-repeater-1 ">
             <div
           v-for="(team, index) in teams"
           :key="index"

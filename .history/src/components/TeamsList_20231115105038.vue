@@ -4,16 +4,9 @@
       class="u-align-center u-clearfix u-container-align-center-lg u-container-align-center-xl u-container-align-center-xs u-palette-5-dark-3 u-section-2"
       id="carousel_01c2"
     >
-    
+    {{teams}}
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-align-center u-container-align-center u-container-style u-group u-shape-rectangle u-group-1 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250" style="will-change: transform, opacity; animation-duration: 1500ms;">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h2 class="u-text u-text-1"> Get started today</h2>
-            <p class="u-large-text u-text u-text-variant u-text-2">We're working on something awesome! <br>Stay tuned for our basketball updates.</p>
-          </div>
-        </div>
-        <div class="u-repeater u-repeater-1 teams">
-            <div
+        <div
           v-for="(team, index) in teams"
           :key="index"
           class="u-align-left u-border-5 u-border-no-bottom u-border-no-left u-border-no-right u-border-palette-1-base u-container-align-center u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-5 animated customAnimationIn-played"
@@ -41,19 +34,16 @@
             >
           </div>
         </div>
-        </div>
-        
       </div>
     </section>
   </template>
   
-  <script>
+  <script setup>
   import axios from 'axios';
   import { defineComponent, ref, onMounted } from 'vue';
-
-  export default {
-
-  name: 'TeamsList',
+  
+  defineComponent({
+    name: 'TeamsList',
   
     data() {
     return {
@@ -73,7 +63,6 @@
     };
   },
 
-
   methods: {
     async vote(teamName) {
       try {
@@ -90,7 +79,6 @@
       }
     },
   },
-};
     // data: () => ({
     //     teams :[
     //     { name: 'AL RIYADI BASKETBALL', logo: 'https://staging.snipsbasketball.com/storage/general/al-riyadi-basketball-logo.png' },
@@ -145,6 +133,6 @@
     //     vote,
     //   };
     // },
-
+  });
   </script>
   

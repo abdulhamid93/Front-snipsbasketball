@@ -4,15 +4,9 @@
       class="u-align-center u-clearfix u-container-align-center-lg u-container-align-center-xl u-container-align-center-xs u-palette-5-dark-3 u-section-2"
       id="carousel_01c2"
     >
-    
+ 
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-align-center u-container-align-center u-container-style u-group u-shape-rectangle u-group-1 animated customAnimationIn-played" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250" style="will-change: transform, opacity; animation-duration: 1500ms;">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h2 class="u-text u-text-1"> Get started today</h2>
-            <p class="u-large-text u-text u-text-variant u-text-2">We're working on something awesome! <br>Stay tuned for our basketball updates.</p>
-          </div>
-        </div>
-        <div class="u-repeater u-repeater-1 teams">
+        <div class="u-repeater u-repeater-1">
             <div
           v-for="(team, index) in teams"
           :key="index"
