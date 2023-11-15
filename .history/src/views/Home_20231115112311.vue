@@ -13,7 +13,7 @@ import { defineComponent } from 'vue';
 defineComponent({
     name: 'Home',
     components: {
-        MainComp,
+        HelloWorld,
     },
 });
 </script>

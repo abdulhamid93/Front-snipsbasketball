@@ -6,14 +6,14 @@
 
 <script setup>
 // @ is an alias to /src
-import MainComp from '@/components/MainComp.vue';
+import HelloWorld from '@/components/MainComp.vue';
 
 import { defineComponent } from 'vue';
 
 defineComponent({
     name: 'Home',
     components: {
-        MainComp,
+        HelloWorld,
     },
 });
 </script>
