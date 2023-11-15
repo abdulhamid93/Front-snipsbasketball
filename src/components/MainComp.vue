@@ -140,43 +140,8 @@ defineComponent({
     data: () => ({
     
     methods: {
-        sendBroadcast,
     },
     }),
 });
-
-import { ref, onMounted, onUnmounted } from 'vue';
-import LaravelEcho from "laravel-echo"
-import Pusher from 'pusher-js';
-
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
-const message = ref('Waiting for broadcast...');
-
-onMounted(() => {
-
-    const echo = new LaravelEcho({
-        broadcaster: 'pusher',
-        key: '46bb874b7ddecccc4d34',
-        cluster: 'eu',
-        encrypted: true,
-    });
-
-  // Subscribe to the 'vote-channel'
-  const channel = echo.channel('vote-channel');
-
-    // Listen for the 'vote.updated' event
-    channel.listen('.vote.updated', (event) => {
-        message.value = event.message;
-        console.log(event);
-        console.log('event.data.message1');
-    });
-
-});
-
-onUnmounted(() => {
-  // Unsubscribe or perform cleanup if needed
-});
-
 
 </script>

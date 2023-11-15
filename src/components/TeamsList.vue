@@ -41,16 +41,32 @@
 <script>
 import axios from 'axios';
 import { defineComponent, ref, onMounted } from 'vue';
+import LaravelEcho from "laravel-echo"
+import Pusher from 'pusher-js';
+
+// Enable pusher logging - don't include this in production
+Pusher.logToConsole = true;
+
 
 import { useRoute } from 'vue-router';
 import { baseURL } from '@/config';
 export default {
 
   name: 'TeamsList',
+  data() {
+    return {
+      // token:null,
+      // tokenExists:false,
+      teams: [
+      ],
+      results:[],
+      message:''
+    };
+  },
+
   setup() {
     const route = useRoute();
     const token = ref('');
-
     // Set the token initially
     token.value = route.params.token;
 
@@ -62,23 +78,8 @@ export default {
 
     const tokenExists = ref(false);
 
-    // Check if the token exists
-    onMounted(() => {
-      tokenExists.value = token.value !== undefined && token.value !== null && token.value !== '';
-    });
-
-    // Additional setup logic if needed
-
-
   },
-  data() {
-    return {
-      // token:null,
-      // tokenExists:false,
-      teams: [
-      ],
-    };
-  },
+  
 
   created: function () {
     this.teams = [
@@ -95,10 +96,29 @@ export default {
 
     ];
   },
+  mounted: function(){
+    const echo = new LaravelEcho({
+        broadcaster: 'pusher',
+        key: '46bb874b7ddecccc4d34',
+        cluster: 'eu',
+        encrypted: true,
+    });
+
+    // Subscribe to the 'vote-channel'
+    const channel = echo.channel('vote-channel');
+
+    // Listen for the 'vote.updated' event
+    channel.listen('.vote.updated', (event) => {
+        this.message = event.message;
+        console.log('event.data.message1');
+        console.log(event.teams);
+        this.results = event.teams.teams;
+        console.log('message.value');
+    });
+
+  },
   methods: {
     async sendBroadcast(team) {
-      console.log('Broadcasting for team:', team);
-
       try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
@@ -121,34 +141,11 @@ export default {
         // Handle errors
         console.error('Error voting:', error);
       }
-
     },
   },
 
+
 };
-import LaravelEcho from 'laravel-echo';
-import Pusher from 'pusher-js';
-
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
-const message = ref('Waiting for broadcast...');
-
-onMounted(() => {
-  const echo = new LaravelEcho({
-    broadcaster: 'pusher',
-    key: '46bb874b7ddecccc4d34',
-    cluster: 'eu',
-    encrypted: true,
-  });
-
-  // Subscribe to the 'vote-channel'
-  const channel = echo.channel('vote-channel');
-
-  // Listen for the 'vote.updated' event
-  channel.listen('.vote.updated', event => {
-    message.value = event.message;
-  });
-});
 
 </script>
   
