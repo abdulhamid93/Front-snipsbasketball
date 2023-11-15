@@ -58,16 +58,16 @@
     data() {
     return {
       teams:  [
-        {id:1, name: 'AL RIYADI BASKETBALL', logo: 'https://staging.snipsbasketball.com/storage/general/al-riyadi-basketball-logo.png' },
-        {id:2, name: 'BEIRUT', logo: 'https://staging.snipsbasketball.com/storage/general/beirut.png' },
-        {id:3, name: 'Antranik', logo: 'https://staging.snipsbasketball.com/storage/general/antranik.png' },
-        {id:4, name: 'Champville', logo: 'https://staging.snipsbasketball.com/storage/general/champvillelogo.png' },
-        {id:5, name: 'Antonin', logo: 'https://staging.snipsbasketball.com/storage/general/antonin.png' },
-        {id:6, name: 'CS Sagesse', logo: 'https://staging.snipsbasketball.com/storage/general/cs-sagesse-logo.png' },
-        {id:7, name: 'Hmem', logo: 'https://staging.snipsbasketball.com/storage/general/hmemlogo2019.png' },
-        {id:8, name: 'Hoops', logo: 'https://staging.snipsbasketball.com/storage/general/hoops-logo.png' },
-        {id:9, name: 'Mayrouba', logo: 'https://staging.snipsbasketball.com/storage/general/mayrouba.png' },
-        {id:10, name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
+        {id:, name: 'AL RIYADI BASKETBALL', logo: 'https://staging.snipsbasketball.com/storage/general/al-riyadi-basketball-logo.png' },
+        { name: 'BEIRUT', logo: 'https://staging.snipsbasketball.com/storage/general/beirut.png' },
+        { name: 'Antranik', logo: 'https://staging.snipsbasketball.com/storage/general/antranik.png' },
+        { name: 'Champville', logo: 'https://staging.snipsbasketball.com/storage/general/champvillelogo.png' },
+        { name: 'Antonin', logo: 'https://staging.snipsbasketball.com/storage/general/antonin.png' },
+        { name: 'CS Sagesse', logo: 'https://staging.snipsbasketball.com/storage/general/cs-sagesse-logo.png' },
+        { name: 'Hmem', logo: 'https://staging.snipsbasketball.com/storage/general/hmemlogo2019.png' },
+        { name: 'Hoops', logo: 'https://staging.snipsbasketball.com/storage/general/hoops-logo.png' },
+        { name: 'Mayrouba', logo: 'https://staging.snipsbasketball.com/storage/general/mayrouba.png' },
+        { name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
 
       ],
     };
