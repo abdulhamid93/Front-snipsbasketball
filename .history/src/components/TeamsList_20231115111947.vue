@@ -67,7 +67,7 @@
         {id:7, name: 'Hmem', logo: 'https://staging.snipsbasketball.com/storage/general/hmemlogo2019.png' },
         {id:8, name: 'Hoops', logo: 'https://staging.snipsbasketball.com/storage/general/hoops-logo.png' },
         {id:9, name: 'Mayrouba', logo: 'https://staging.snipsbasketball.com/storage/general/mayrouba.png' },
-        {id:10, name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
+        {id:1, name: 'NSA', logo: 'https://staging.snipsbasketball.com/storage/general/nsa.png' },
 
       ],
     };
