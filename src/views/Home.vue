@@ -1,13 +1,7 @@
 <template>
-<<<<<<< HEAD
   <div class="home">
       <MainComp msg="Welcome to Your Vue.js App" />
   </div>
-=======
-    <div class="home">
-        <MainComp msg="Welcome to Your Vue.js App" />
-    </div>
->>>>>>> 115ee00610a038e9c3ecc169ae01ba7723fe0585
 </template>
 
 <script setup>
@@ -17,16 +11,9 @@ import MainComp from '@/components/MainComp.vue';
 import { defineComponent } from 'vue';
 
 defineComponent({
-<<<<<<< HEAD
   name: 'Home',
   components: {
       MainComp,
   },
-=======
-    name: 'Home',
-    components: {
-        MainComp,
-    },
->>>>>>> 115ee00610a038e9c3ecc169ae01ba7723fe0585
 });
 </script>
