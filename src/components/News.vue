@@ -1,23 +1,25 @@
 
 <template>
-  <section class="u-clearfix u-image u-shading u-section-1-news" id="" data-image-width="1980">
-    <div class="news-container">
+  <section class="news-container u-section-1-news" id="" data-image-width="1980">
+    
       <div class="title">
         <a href="/" class="page-logo">
-          <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="50">
-            <span style="margin-left: 20px;color:#fff">live Results:</span>
+          <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
+            <span style="margin-left: 20px;color:#df2020">live Results:</span>
         </a>
       </div>
 
       <ul>
         <li><span></span> </li>
         <li class="team-item" v-for="(team, index) in teams " :key="index">
-          <img :src="team.logo" width="50"><span> {{ team.total }}</span>
+          <img :src="team.logo" width="40"><span> {{ team.total }}</span>
+        </li>
+        <li class="team-item" v-for="(team, index) in teams " :key="index">
+          <img :src="team.logo" width="40"><span> {{ team.total }}</span>
         </li>
 
-
       </ul>
-    </div>
+    
   </section>
 </template>
   
