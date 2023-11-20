@@ -76,6 +76,11 @@ export default {
       this.message = event.message;
       this.results = event.teams.teams;
       this.teams = event.teams.teams;
+
+      console.log('this.teams');
+      console.log(this.teams);
+      console.log('this.teams');
+
     });
 
   },
