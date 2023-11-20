@@ -45,7 +45,7 @@
         <div v-if="isMessageVisible" :class="['message', messageType]">
           {{ message }}
         </div>
-        <button class="btn submit" @click="sendBroadcast(selectedTeam)">Submit Vote</button>
+        <button class="btn submit" @click="sendBroadcast(selectedTeam)">Vote</button>
         <button class="btn close" @click="isPopupOpen = false">X</button>
       </div>
     </div>
@@ -161,6 +161,8 @@ export default {
           // Display success message with animation
 
           this.showMessage(response.data.message, 'success');
+          setTimeout(() => { this.isPopupOpen = false;}, 5000);
+         
         }
 
       } catch (error) {

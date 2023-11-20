@@ -746,12 +746,14 @@
  }
 
  .popup-content img {
-  width: auto;
-  max-height: 200px;
+   width: auto;
+   max-height: 200px;
  }
+
  .page-logo img {
-  max-height: 66px;
-}
+   max-height: 66px;
+ }
+
  .popup-content .title {}
 
  .popup-content input {
@@ -931,6 +933,15 @@
      min-height: 3155px;
    }
 
+   .page-logo img {
+     max-height: 44px;
+   }
+   .news-container .title{
+    padding: 0 10px;
+   }
+.page-logo span{
+  margin-left: 10px;
+}
    .u-section-3 .u-layout-wrap-1 {
      width: 540px;
    }
