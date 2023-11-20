@@ -1,4 +1,5 @@
 <template>
+    {{ teams }}
     
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
         data-image-height="1320">
@@ -136,15 +137,21 @@ import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
 import News from './News.vue'
 import { defineComponent } from 'vue';
+import { inject } from 'vue';
 
 defineComponent({
     name: 'MainComp',
 
-    data: () => ({
-    
-    methods: {
-    },
-    }),
+    data() {
+    return {
+     
+      teams: [
+        
+      ],
+    };
+  },
+  methods: {
+  },
 });
 
 </script>
