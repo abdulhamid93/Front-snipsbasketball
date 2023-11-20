@@ -39,7 +39,8 @@
       <div class="popup-content">
         <h2>Vote for {{ selectedTeam.name }}</h2>
         <img :src="selectedTeam.logo" alt="" />
-        <p>Enter Code</p>
+        <!-- <p>Enter Code</p> -->
+        <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
         <input v-model="token" type="text" placeholder="Enter your Code" />
         <!-- Message Display -->
         <div v-if="isMessageVisible" :class="['message', messageType]">
@@ -65,6 +66,12 @@ export default {
   data() {
     return {
       token: null,
+      mobile: null,
+      isPopupOpen: false,
+      selectedTeam: null,
+      message:'',
+      isMessageVisible: false,
+      messageType: '',
       teams: [
       ],
     };
@@ -104,7 +111,7 @@ export default {
       try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id, token: 'd7c7badb39b6', ip: '192.0.0.0' }
+          { team_id: team.id,mobile:this.mobile, token: this.token, ip: '192.0.0.0' }
         );
         //status
         console.log('response.data:', response.data.status);
