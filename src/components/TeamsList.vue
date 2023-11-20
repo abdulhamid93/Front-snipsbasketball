@@ -41,13 +41,7 @@
 <script>
 import axios from 'axios';
 import { defineComponent, ref, onMounted } from 'vue';
-import LaravelEcho from "laravel-echo"
-import Pusher from 'pusher-js';
-
-// Enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
-
-
+import { inject } from 'vue';
 import { useRoute } from 'vue-router';
 import { baseURL } from '@/config';
 export default {
@@ -57,7 +51,6 @@ export default {
   data() {
     return {
       token: null,
-      // tokenExists:false,
       teams: [
       ],
     };
@@ -66,20 +59,7 @@ export default {
 
 
   created: function () {
-    this.teams = [
-      { id: 1, name: 'AL RIYADI BASKETBALL', logo: baseURL+'/storage/general/al-riyadi-basketball-logo.png' },
-      { id: 2, name: 'BEIRUT', logo: baseURL+'/storage/general/beirut.png' },
-      { id: 3, name: 'Antranik', logo: baseURL+'/storage/general/antranik.png' },
-      { id: 4, name: 'Champville', logo: baseURL+'/storage/general/champvillelogo.png' },
-      { id: 5, name: 'Antonin', logo: baseURL+'/storage/general/antonin.png' },
-      { id: 6, name: 'CS Sagesse', logo: baseURL+'/storage/general/cs-sagesse-logo.png' },
-      { id: 7, name: 'Hmem', logo: baseURL+'/storage/general/hmemlogo2019.png' },
-      { id: 8, name: 'Hoops', logo: baseURL+'/storage/general/hoops-logo.png' },
-      { id: 9, name: 'Mayrouba', logo: baseURL+'/storage/general/mayrouba.png' },
-      { id: 10, name: 'NSA', logo: baseURL+'/storage/general/nsa-1.jpg' },
-
-    ];
-
+    this.teams = inject('teams');
   },
   mounted: function(){
     const route = useRoute();
@@ -89,25 +69,6 @@ export default {
        if (token.value !== undefined && token.value !== null && token.value !== '')
        this.token = token.value;
       console.log('token.value' + token.value);
-    const echo = new LaravelEcho({
-        broadcaster: 'pusher',
-        key: '46bb874b7ddecccc4d34',
-        cluster: 'eu',
-        encrypted: true,
-    });
-
-    // Subscribe to the 'vote-channel'
-    const channel = echo.channel('vote-channel');
-
-    // Listen for the 'vote.updated' event
-    channel.listen('.vote.updated', (event) => {
-        this.message = event.message;
-        console.log('event.data.message1');
-        console.log(event.teams);
-        this.results = event.teams.teams;
-        console.log('message.value');
-    });
-
   },
   methods: {
     async sendBroadcast(team) {
@@ -115,24 +76,10 @@ export default {
       try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id, token: '787', ip: '192.0.0.0' }
+          { team_id: team.id, token: 'd7c7badb39b6', ip: '192.0.0.0' }
         );
       } catch (error) {
         console.error('Error sending broadcast:', error);
-      }
-    },
-    async vote(teamName) {
-      try {
-        const response = await axios.post('/api/v1/voting', {
-          team: teamName,
-          // Add any other data you need to send in the request body
-        });
-
-        // Handle the response as needed
-        console.log('Vote successful:', response.data);
-      } catch (error) {
-        // Handle errors
-        console.error('Error voting:', error);
       }
     },
   },
