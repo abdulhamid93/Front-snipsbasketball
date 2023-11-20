@@ -17,7 +17,6 @@ import axios from 'axios';
 const app = createApp(App);
 
 
-
 // Fetch data and provide it to the entire application
 (async () => {
   try {
@@ -26,7 +25,7 @@ const app = createApp(App);
 
     // Provide the 'teams' data to the application
     app.provide('teams', teams);
-
+    app.provide('openPopupInC2', false);
     app.use(router).use(store).use(vuetify).mount('#app');
   } catch (error) {
     console.error('Error fetching teams:', error);

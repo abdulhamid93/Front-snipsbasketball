@@ -1,5 +1,5 @@
 <template>
-    {{ teams }}
+ 
     
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
         data-image-height="1320">
@@ -23,7 +23,8 @@
             </div>
         </div>
     </section>
-    <News></News>
+    <News @open-popup-in-c2="openPopupInC2"></News>
+    <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal>
     <TeamsList></TeamsList>
     <section class="u-clearfix u-section-3" id="carousel_db91">
         <div class="u-expanded-width u-palette-5-dark-3 u-shape u-shape-rectangle u-shape-1"></div>
@@ -135,6 +136,7 @@
 <script setup>
 import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
+import TeamsResultsModal from './TeamsResultsModal.vue'
 import News from './News.vue'
 import { defineComponent } from 'vue';
 import { inject } from 'vue';
@@ -144,13 +146,16 @@ defineComponent({
 
     data() {
     return {
-     
+     openPopupInC2: ref(false),
       teams: [
-        
+
       ],
     };
   },
   methods: {
+    openPopupInC2(value) {
+      this.openPopupInC2 = value;
+    },
   },
 });
 
