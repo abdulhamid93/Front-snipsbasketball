@@ -10,7 +10,7 @@
         data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250"
         style="will-change: transform, opacity; animation-duration: 1500ms;">
         <div class="u-container-layout u-valign-middle u-container-layout-1">
-          <h2 class="u-text u-text-1"> Get started today</h2>
+          <h2 class="u-text u-text-1"> Vote Now</h2>
           <p class="u-large-text u-text u-text-variant u-text-2">We're working on something awesome! <br>Stay tuned for
             our basketball updates.</p>
         </div>
@@ -26,14 +26,28 @@
               data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
               <img :src="team.logo" alt="" />
             </span>
-            <h4 class="u-align-center u-text u-text-9">{{ team.name }}-{{ token }}</h4>
-            <a @click="sendBroadcast(team)"
+            <h4 class="u-align-center u-text u-text-9">{{ team.name }}</h4>
+            <a @click="openPopup(team)"
               class="u-active-black u-btn vote-btn u-button-style u-hover-black u-palette-1-base u-btn-2">Vote</a>
-            <p>{{ message }}</p>
+            
           </div>
         </div>
       </div>
 
+    </div>
+    <div v-if="isPopupOpen" class="popup">
+      <div class="popup-content">
+        <h2>Vote for {{ selectedTeam.name }}</h2>
+        <img :src="selectedTeam.logo" alt="" />
+        <p>Enter Code</p>
+        <input v-model="token" type="text" placeholder="Enter your Code" />
+        <!-- Message Display -->
+        <div v-if="isMessageVisible" :class="['message', messageType]">
+          {{ message }}
+        </div>
+        <button class="btn submit" @click="sendBroadcast(selectedTeam)">Vote</button>
+        <button class="btn close" @click="isPopupOpen = false">X</button>
+      </div>
     </div>
   </section>
 </template>
@@ -47,7 +61,7 @@ import { baseURL } from '@/config';
 export default {
 
   name: 'TeamsList',
-  
+
   data() {
     return {
       token: null,
@@ -55,22 +69,36 @@ export default {
       ],
     };
   },
-  
+
 
 
   created: function () {
     this.teams = inject('teams');
   },
-  mounted: function(){
+  mounted: function () {
     const route = useRoute();
     const token = ref('');
-    const tokenExists = ref(false); 
+    const tokenExists = ref(false);
     token.value = route.params.token;
        if (token.value !== undefined && token.value !== null && token.value !== '')
        this.token = token.value;
       console.log('token.value' + token.value);
   },
   methods: {
+    openPopup(team) {
+      this.isPopupOpen = true;
+      this.selectedTeam = team;
+    },
+    showMessage(message, type) {
+      this.message = message;
+      this.messageType = type; // 'success' or 'error'
+      this.isMessageVisible = true;
+
+      // Hide the message after a delay (adjust as needed)
+      setTimeout(() => {
+        this.isMessageVisible = false;
+      }, 5000); // 3000 milliseconds = 3 seconds, adjust as needed
+    },
     async sendBroadcast(team) {
       console.log('Broadcasting for team:', team);
       try {
@@ -78,6 +106,21 @@ export default {
           'https://staging.snipsbasketball.com/api/v1/vote',
           { team_id: team.id, token: 'd7c7badb39b6', ip: '192.0.0.0' }
         );
+        //status
+        console.log('response.data:', response.data.status);
+        // Check the response status
+        if (response.data.status == "error") {
+          
+          // Display error message with animation
+          this.showMessage(response.data.message, 'error');
+        } else if (response.data.status == "success") {
+          // Display success message with animation
+
+          this.showMessage(response.data.message, 'success');
+          setTimeout(() => { this.isPopupOpen = false;}, 5000);
+         
+        }
+
       } catch (error) {
         console.error('Error sending broadcast:', error);
       }
