@@ -1,10 +1,9 @@
 <template>
-    
-
     <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
         data-image-height="1320">
 
         <div class="container">
+           
             <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
                 <div class="u-container-style u-expanded-width-xs u-group u-white u-group-1"
                     data-animation-name="customAnimationIn" data-animation-duration="1500">
@@ -155,7 +154,7 @@ defineComponent({
     },
 
     methods: {
-        
+
         openPopupInC2(value) {
             this.openPopupInC2 = value;
         },

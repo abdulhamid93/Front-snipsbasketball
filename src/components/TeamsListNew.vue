@@ -1,6 +1,11 @@
 
 <template>
   <div class="blog-slider u-repeater-teams">
+    <div class="u-container-layout u-valign-middle u-container-layout-1 u-align-center u-container-align-center">
+      <h2 class="u-text u-text-1"> Vote Now</h2>
+      <p class="u-large-text u-text u-text-variant u-text-2">We're working on something awesome! <br>Stay tuned
+        for our basketball updates.</p>
+    </div>
     <div>
       <div class="blog-slider__item swiper-slide-active" v-for="(team, index) in teams" :key="index">
         <div class="blog-slider__img">
@@ -254,8 +259,8 @@ export default {
 
 .blog-slider .blog-slider__content {
   padding-right: 8px;
-  width: calc(100% - 80px);
-  padding-left: 70px;
+  width: calc(100% - 10px);
+  padding-left: 50px;
 }
 
 .blog-slider .blog-slider__img img {
@@ -545,4 +550,5 @@ export default {
     height: 11px;
     width: 30px;
   }
-}</style>
+}
+</style>
