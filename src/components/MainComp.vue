@@ -129,7 +129,7 @@
         </div>
     </section>
 
-    <div class="go_top" :class="{ 'show_go_top': showGoTop }">
+    <div class="go_top" :class="{ 'show_go_top': showGoTop }" @click="goToTop">
 		<img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
 	</div>
   
@@ -176,6 +176,13 @@ export default {
       const scrollThreshold = 200;
       this.showGoTop = window.scrollY > scrollThreshold;
     },
+    goToTop() {
+      // Smooth scroll to the top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   },
 };
 </script>
