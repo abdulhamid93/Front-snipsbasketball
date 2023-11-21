@@ -2,14 +2,14 @@
 <template>
   <section class="news-container u-section-1-news" id="" data-image-width="1980">
     
-      <div class="title">
-        <a href="/" class="page-logo">
-          <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
-            <span style="margin-left: 20px;color:#df2020">live Results:</span>
-        </a>
-      </div>
-      <ul>
-      <li><span></span></li>
+    <div class="title">
+      <a @click="openPopupRes" class="page-logo">
+        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
+        <span style="margin-left: 20px;color:#df2020">live Results:</span>
+      </a>
+    </div>
+    <ul>
+      <li><span></span> </li>
       <li
         class="team-item"
         v-for="(team, index) in teams"
@@ -21,9 +21,19 @@
         <!-- Add the green arrow if this is the changed team -->
         <span v-if="team === changedTeam" class="arrow-up"></span>
       </li>
-      <!-- Repeat for other list items -->
+      <li
+        class="team-item"
+        v-for="(team, index) in teams"
+        :key="index"
+        :class="{ 'team-item-updated': team === changedTeam }"
+      >
+        <img :src="team.logo" width="40">
+        <span :style="getTeamTextStyle(team)">{{ team.total }}</span>
+        <!-- Add the green arrow if this is the changed team -->
+        <span v-if="team === changedTeam" class="arrow-up"></span>
+      </li>
     </ul>
-    
+
   </section>
 </template>
   
@@ -36,6 +46,7 @@ import Pusher from 'pusher-js';
 // Enable pusher logging - don't include this in production
 // Pusher.logToConsole = true;
 
+import eventBus from './../eventBus';
 import { useRoute } from 'vue-router';
 export default {
 
@@ -44,7 +55,8 @@ export default {
   data() {
     return {
       token: null,
-      tokenExists:false,
+      tokenExists: false,
+      openPopupInC2: false,
       teams: [
       ],
       changedTeam: null, // New property to store the changed team
@@ -53,6 +65,7 @@ export default {
 
   created: function () {
     this.teams = inject('teams');
+    this.openPopupInC2 = inject('openPopupInC2');
   },
   mounted: function () {
     const route = useRoute();
@@ -115,6 +128,10 @@ export default {
       }
       return {}; // Return an empty object for other teams
     },
+    openPopupRes() {
+      // eventBus.emit('open-popup-in-c2');
+      this.$emit('openPopupInC2'); // Emit an event to open the popup in C2//this.openPopupInC2 = true;
+    }
   },
 
 };
@@ -148,4 +165,10 @@ export default {
   border-right: 5px solid transparent;
   border-bottom: 10px solid green;
 }
+
+.page-logo {
+  cursor: pointer;
+}
+
+
 </style>
