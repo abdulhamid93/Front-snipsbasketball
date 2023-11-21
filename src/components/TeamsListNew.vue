@@ -229,7 +229,9 @@ export default {
   margin-left: 2%;
   position: relative;
 }
-
+.blog-slider .blog-slider__img::after {
+  background-image: linear-gradient(147deg, #0d6efd 0%, #fd3838 74%);
+}
 .blog-slider .blog-slider__img {
   width: 100px;
   flex-shrink: 0;
