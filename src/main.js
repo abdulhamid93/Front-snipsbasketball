@@ -28,7 +28,7 @@ app.config.globalProperties.$moment = moment;
 
     // Update the 'updated_at' field for each team
     teams.forEach(team => {
-      team.updated_at = moment(team.updated_at).format("DD MMMM YYYY");
+      team.updated_at = moment(team.updated_at).fromNow();
     });
 
     // Provide the 'teams' data to the application
