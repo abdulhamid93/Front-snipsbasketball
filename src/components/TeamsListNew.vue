@@ -16,8 +16,7 @@
         <div class="blog-slider__content">
           <span class="blog-slider__code">26 December 2019</span>
           <div class="blog-slider__title">{{ team.name }}</div>
-          <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-            voluptate repellendus magni illo ea animi? </div>
+          <div class="blog-slider__text">{{ team.summary }}</div>
           <a @click="openPopup(team)" class="blog-slider__button">Vote </a>
         </div>
       </div>
