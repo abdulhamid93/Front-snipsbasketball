@@ -185,9 +185,13 @@ export default {
 * {
   box-sizing: border-box;
 }
+.blog-slider  .blog-slider__button:hover{
+  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+ 
+}
 .blog-slider  .blog-slider__button {
   display: inline-flex;
-  background-image: linear-gradient(147deg, #0d6efd 0%, #fd3838 74%);
+  background-image: linear-gradient(147deg, #000 0%, #555 74%);
   padding: 7px 25px;
 
   letter-spacing: 1px;
@@ -448,18 +452,20 @@ export default {
   font-size: 24px;
   font-weight: 700;
   color: #0d0925;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .blog-slider__text {
   color: #4e4a67;
-  margin-bottom: 30px;
-  line-height: 1.5em;
+  margin-bottom: 10px;
+  line-height: 1.2em;
+  min-height: 99px;
 }
+
 
 .blog-slider__button {
   display: inline-flex;
-  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+  background-image: linear-gradient(147deg, #000 12%, #555 74%);
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
