@@ -114,7 +114,9 @@
 h2.hero-text-style-2 {
   /* margin-left: -5.5vw; */
 }
-
+.blog-slider__button{
+  cursor: pointer;
+}
 .hero-section .hero-text-style-1, .hero-section .hero-text-style-2 {
   margin-top: 0;
 }

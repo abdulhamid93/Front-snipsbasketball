@@ -14,8 +14,9 @@
           <img :src="team.logo" alt="" />
         </div>
         <div class="blog-slider__content">
-          <span class="blog-slider__code">26 December 2019</span>
+          
           <div class="blog-slider__title">{{ team.name }}</div>
+          <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
           <div class="blog-slider__text">{{ team.summary }}</div>
           <a @click="openPopup(team)" class="blog-slider__button">Vote </a>
         </div>
@@ -184,7 +185,14 @@ export default {
 * {
   box-sizing: border-box;
 }
+.blog-slider  .blog-slider__button {
+  display: inline-flex;
+  background-image: linear-gradient(147deg, #0d6efd 0%, #fd3838 74%);
+  padding: 7px 25px;
 
+  letter-spacing: 1px;
+  font-size: 15px;
+}
 .blog-slider .u-text.u-text-1 {
   font-weight: 400;
   font-size: 3rem;
@@ -217,7 +225,8 @@ export default {
   border-radius: 25px;
   min-height: 280px;
   margin-bottom: 20px;
-  margin-right: 5%;
+  margin-right: 3%;
+  margin-left: 2%;
 }
 
 .blog-slider .blog-slider__img {

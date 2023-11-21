@@ -24,7 +24,7 @@
     <News @open-popup-in-c2="openPopupInC2"></News>
     <!-- <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal> -->
     <TeamsListNew></TeamsListNew>
-    <TeamsList></TeamsList>
+    <!-- <TeamsList></TeamsList> -->
     <section class="u-clearfix u-section-3" id="carousel_db91">
         <div class="u-expanded-width u-palette-5-dark-3 u-shape u-shape-rectangle u-shape-1"></div>
         <div class="data-layout-selected u-clearfix u-gutter-26 u-layout-wrap u-layout-wrap-1">
