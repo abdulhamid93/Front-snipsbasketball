@@ -1,6 +1,9 @@
 <template>
- 
-    <section class="section hero-section bg-image context-dark">
+    
+
+    <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
+        data-image-height="1320">
+
         <div class="container">
           <div class="row">
             <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10">
@@ -21,8 +24,8 @@
     </section>
 
     <News @open-popup-in-c2="openPopupInC2"></News>
-    
-    <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal>
+    <!-- <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal> -->
+    <TeamsListNew></TeamsListNew>
     <TeamsList></TeamsList>
     <section class="u-clearfix u-section-3" id="carousel_db91">
         <div class="u-expanded-width u-palette-5-dark-3 u-shape u-shape-rectangle u-shape-1"></div>
@@ -98,9 +101,8 @@
                             <p class="u-custom-font u-font-montserrat u-text u-text-2"> Want to be the first to read our
                                 news? Subscribe to the newsletter to keep abreast of all events.</p>
                             <div class="u-expanded-width u-form u-form-1">
-                                <form action="#"
-                                    class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" source="email"
-                                    name="form" style="padding: 0px;">
+                                <form action="#" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
+                                    source="email" name="form" style="padding: 0px;">
                                     <div class="u-form-email u-form-group u-label-none">
                                         <label for="email-6564" class="u-label">Email</label>
                                         <input type="email" placeholder="Enter a valid email address" id="email-6564"
@@ -128,17 +130,22 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
 
     <div class="go_top" :class="{ 'show_go_top': showGoTop }">
 		<img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
 	</div>
   
+=======
+>>>>>>> 9159da248f05e6f8838a0c2778e67d252fad66c5
 </template>
 
 
 <script>
 import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
+import TeamsListNew from './TeamsListNew.vue'
+
 import TeamsResultsModal from './TeamsResultsModal.vue'
 import News from './News.vue'
 import { defineComponent } from 'vue';
@@ -147,6 +154,7 @@ import { onMounted, onBeforeUnmount, ref } from 'vue';
 
 export default {    
     data() {
+<<<<<<< HEAD
     return {
      openPopupInC2: ref(false),
       teams: [
@@ -177,3 +185,23 @@ export default {
   },
 };
 </script>
+=======
+        return {
+            openPopupInC2: ref(false),
+            teams: [
+
+            ],
+        };
+    },
+
+    methods: {
+        
+        openPopupInC2(value) {
+            this.openPopupInC2 = value;
+        },
+    },
+});
+
+</script>
+
+>>>>>>> 9159da248f05e6f8838a0c2778e67d252fad66c5
