@@ -231,6 +231,7 @@ export default {
 }
 .blog-slider .blog-slider__img::after {
   background-image: linear-gradient(147deg, #f2f2f2 0%, #ffffff 74%);
+  opacity: 0.3;
 }
 .blog-slider .blog-slider__img {
   width: 100px;
