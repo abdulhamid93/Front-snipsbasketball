@@ -1,9 +1,7 @@
 <template>
     
 
-    <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
-        data-image-height="1320">
-
+    <section class="section hero-section bg-image context-dark">
         <div class="container">
           <div class="row">
             <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10">
@@ -21,7 +19,7 @@
           <li><a class="icon fa-twitter" href="#"></a></li>
           <li><a class="icon fa-instagram" href="#"></a></li>
         </ul>
-    </section>
+      </section>
 
     <News @open-popup-in-c2="openPopupInC2"></News>
     <!-- <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal> -->
