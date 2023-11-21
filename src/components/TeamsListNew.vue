@@ -230,13 +230,13 @@ export default {
   position: relative;
 }
 .blog-slider .blog-slider__img::after {
-  background-image: linear-gradient(147deg, #0d6efd 0%, #fd3838 74%);
+  background-image: linear-gradient(147deg, #f2f2f2 0%, #ffffff 74%);
 }
 .blog-slider .blog-slider__img {
   width: 100px;
   flex-shrink: 0;
   height: 100px;
-  background-image: linear-gradient(147deg, #0d6efd 24%, #fd3838 74%);
+  background-image: linear-gradient(147deg, #f2f2f2 24%, #ffffff 74%);
   box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
   border-radius: 20px;
   transform: translateX(-80px);
