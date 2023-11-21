@@ -130,14 +130,11 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
 
     <div class="go_top" :class="{ 'show_go_top': showGoTop }">
 		<img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
 	</div>
   
-=======
->>>>>>> 9159da248f05e6f8838a0c2778e67d252fad66c5
 </template>
 
 
@@ -154,7 +151,6 @@ import { onMounted, onBeforeUnmount, ref } from 'vue';
 
 export default {    
     data() {
-<<<<<<< HEAD
     return {
      openPopupInC2: ref(false),
       teams: [
@@ -185,23 +181,3 @@ export default {
   },
 };
 </script>
-=======
-        return {
-            openPopupInC2: ref(false),
-            teams: [
-
-            ],
-        };
-    },
-
-    methods: {
-        
-        openPopupInC2(value) {
-            this.openPopupInC2 = value;
-        },
-    },
-});
-
-</script>
-
->>>>>>> 9159da248f05e6f8838a0c2778e67d252fad66c5
