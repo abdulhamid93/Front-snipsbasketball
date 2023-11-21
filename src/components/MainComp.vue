@@ -1,27 +1,26 @@
 <template>
-    <section class="u-clearfix u-image u-shading u-section-1" id="carousel_55e3" data-image-width="1980"
-        data-image-height="1320">
+    
 
+    <section class="section hero-section bg-image context-dark">
         <div class="container">
-           
-            <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
-                <div class="u-container-style u-expanded-width-xs u-group u-white u-group-1"
-                    data-animation-name="customAnimationIn" data-animation-duration="1500">
-                    <div class="u-container-layout u-valign-middle u-container-layout-1">
-                        <h2 class="u-text u-text-default u-text-1"> Ready for more ?</h2>
-                    </div>
-                </div>
-                <p class="u-large-text u-text u-text-body-alt-color u-text-variant u-text-2"
-                    data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500"> We're
-                    working on something awesome! <br>Stay tuned for our
-                    basketball updates </p>
-
-                <a href="#carousel_01c2" class="u-active-black u-btn u-button-style u-hover-black u-palette-1-base u-btn-2"
-                    data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                    data-animation-direction="">Vote Now </a>
+          <div class="row">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-sm-10">
+              <div class="hero-text-box">
+                <h1 class="hero-text-style-1">The Lifestyle</h1>
+                <h2 class="hero-text-style-2">THAT KEEPS</h2>
+                <div class="hero-text-box-bottom"><span class="hero-text-style-2">YOU</span><span class="hero-text-style-1 text-primary1">Energized</span></div>
+                <p>SkyThrow Basketball Club offers you first-class training facilities, the best gear, and specialized skill development in all areas of the game.</p><a class="btn btn-primary" href="#">Read More</a>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+        <ul class="hero-soc">
+          <li><a class="icon fa-facebook-f" href="#"></a></li>
+          <li><a class="icon fa-twitter" href="#"></a></li>
+          <li><a class="icon fa-instagram" href="#"></a></li>
+        </ul>
+      </section>
+
     <News @open-popup-in-c2="openPopupInC2"></News>
     <!-- <TeamsResultsModal :openPopupInC2="openPopupInC2"></TeamsResultsModal> -->
     <TeamsListNew></TeamsListNew>
@@ -129,9 +128,15 @@
             </div>
         </div>
     </section>
+
+    <div class="go_top" :class="{ 'show_go_top': showGoTop }">
+		<img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
+	</div>
+  
 </template>
 
-<script setup>
+
+<script>
 import logoSvg from '@/assets/logo.svg';
 import TeamsList from './TeamsList.vue'
 import TeamsListNew from './TeamsListNew.vue'
@@ -140,26 +145,37 @@ import TeamsResultsModal from './TeamsResultsModal.vue'
 import News from './News.vue'
 import { defineComponent } from 'vue';
 import { inject } from 'vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-defineComponent({
-    name: 'MainComp',
-
+export default {    
     data() {
-        return {
-            openPopupInC2: ref(false),
-            teams: [
-
-            ],
-        };
+    return {
+     openPopupInC2: ref(false),
+      teams: [
+      ],
+      showGoTop: false,
+    };
+  },
+  components: { TeamsList, TeamsResultsModal, News },
+  mounted() {
+    console.log('test on mounted');
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  },
+  beforeDestroy() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  },
+  methods: {
+    openPopupInC2(value) {
+      this.openPopupInC2 = value;
     },
-
-    methods: {
-
-        openPopupInC2(value) {
-            this.openPopupInC2 = value;
-        },
+    handleScroll() {
+      const scrollThreshold = 200;
+      this.showGoTop = window.scrollY > scrollThreshold;
     },
-});
-
+  },
+};
 </script>
-
