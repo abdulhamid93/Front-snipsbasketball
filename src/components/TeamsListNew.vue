@@ -240,17 +240,18 @@ export default {
   background-image: linear-gradient(147deg, #f2f2f2 24%, #ffffff 74%);
   box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
   border-radius: 20px;
-  transform: translateX(-80px);
+  transform: translateX(30px);
   overflow: hidden;
   display: inline-block;
   position: absolute;
-
+  right: 0;
+  top: -15px;
 }
 
 .blog-slider .blog-slider__content {
-  padding-right: 8px;
+  padding-left: 15px;
   width: calc(100% - 10px);
-  padding-left: 50px;
+  padding-right: 15px;
 }
 
 .blog-slider .blog-slider__img img {
