@@ -1,7 +1,7 @@
 
 <template>
   <section class="news-container u-section-1-news" id="" data-image-width="1980">
-    
+
     <div class="title">
       <a @click="openPopupRes" class="page-logo">
         <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
@@ -10,23 +10,15 @@
     </div>
     <ul>
       <li><span></span> </li>
-      <li
-        class="team-item"
-        v-for="(team, index) in teams"
-        :key="index"
-        :class="{ 'team-item-updated': team === changedTeam }"
-      >
+      <li class="team-item" v-for="(team, index) in teams" :key="index"
+        :class="{ 'team-item-updated': team === changedTeam }">
         <img :src="team.logo" width="40">
         <span :style="getTeamTextStyle(team)">{{ team.total }}</span>
         <!-- Add the green arrow if this is the changed team -->
         <span v-if="team === changedTeam" class="arrow-up"></span>
       </li>
-      <li
-        class="team-item"
-        v-for="(team, index) in teams"
-        :key="index"
-        :class="{ 'team-item-updated': team === changedTeam }"
-      >
+      <li class="team-item" v-for="(team, index) in teams" :key="index"
+        :class="{ 'team-item-updated': team === changedTeam }">
         <img :src="team.logo" width="40">
         <span :style="getTeamTextStyle(team)">{{ team.total }}</span>
         <!-- Add the green arrow if this is the changed team -->
@@ -35,6 +27,36 @@
     </ul>
 
   </section>
+  <div class="modal" v-if="openPopupInC2">
+    <div class="modal-content">
+      <span class="close" @click="closeModal">&times;</span>
+      <h2 class="p-title"><img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
+          alt="snipsbasketball" height="80">
+        <span style="margin-left: 20px;color:#df2020">live Results:</span>
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 240px;">Team Name</th>
+            <th>Result</th>
+            <!-- <th ></th> -->
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(team, index) in teams" :key="index">
+            <td class="result-team"> <img :src="team.logo" width="36"><span> {{ team.name }}</span></td>
+
+            <td style="position: relative;">
+              <div class="bar-fill" :style="{ width: calculatePercentage(team.total) + '%' }"></div>
+              {{ team.total.toFixed(0) }}
+            </td>
+            <td> {{ calculatePercentage(team.total) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
   
 <script>
@@ -65,7 +87,7 @@ export default {
 
   created: function () {
     this.teams = inject('teams');
-    this.openPopupInC2 = inject('openPopupInC2');
+    this.sortTeamsByTotal();
   },
   mounted: function () {
     const route = useRoute();
@@ -91,6 +113,7 @@ export default {
     // Listen for the 'vote.updated' event
     channel.listen('.vote.updated', (event) => {
       this.teams = event.teams.teams;
+      this.sortTeamsByTotal();
       // Set the changed team
       const newChangedIndex = event.teams.teams.findIndex((team, index) => team.total !== this.teams[index].total);
       this.changedTeam = event.teams.teams[newChangedIndex];
@@ -112,11 +135,22 @@ export default {
       setTimeout(() => {
         this.changedTeam = null;
       }, 2000);
-    
+
     });
 
   },
   methods: {
+    closeModal() {
+      this.openPopupInC2 = false;
+    },
+    calculatePercentage(total) {
+      const totalPoints = this.teams.reduce((total, team) => total + team.total, 0);
+      return ((total / totalPoints) * 100).toFixed(2);
+    },
+    sortTeamsByTotal() {
+      // Sort teams array by total property
+      this.teams.sort((a, b) => b.total - a.total);
+    },
     getTeamTextStyle(team) {
       // Define styles for the changed team
       if (team === this.changedTeam) {
@@ -129,8 +163,8 @@ export default {
       return {}; // Return an empty object for other teams
     },
     openPopupRes() {
-      // eventBus.emit('open-popup-in-c2');
-      this.$emit('openPopupInC2'); // Emit an event to open the popup in C2//this.openPopupInC2 = true;
+      
+      this.openPopupInC2=true; 
     }
   },
 
@@ -144,21 +178,26 @@ export default {
 <style scoped>
 /* Add any additional styles as needed */
 .team-item-updated {
-  background-color: #ffd1d1; /* Change this color as needed */
+  background-color: #ffd1d1;
+  /* Change this color as needed */
 }
 
 /* Example of additional styles for the changed team */
 .team-item-updated span {
   color: green;
   font-weight: bold;
-  font-size: calc(2px + 100%); /* Increase font size by 2px */
+  font-size: calc(2px + 100%);
+  /* Increase font size by 2px */
 }
 
 .arrow-up {
   position: absolute;
-  top: -8px; /* Adjust this value to control the distance from the team total */
-  left: 50%; /* Center the arrow horizontally */
-  margin-left: -5px; /* Adjust this value to center the arrow properly */
+  top: -8px;
+  /* Adjust this value to control the distance from the team total */
+  left: 50%;
+  /* Center the arrow horizontally */
+  margin-left: -5px;
+  /* Adjust this value to center the arrow properly */
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
@@ -169,6 +208,4 @@ export default {
 .page-logo {
   cursor: pointer;
 }
-
-
 </style>
