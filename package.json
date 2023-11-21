@@ -13,6 +13,7 @@
         "@vue/compat": "^3.1.0",
         "axios": "^1.6.1",
         "laravel-echo-vue3": "^1.0.1",
+        "moment": "^2.29.4",
         "pinia": "^2.0.29",
         "swiper": "^11.0.4",
         "vite": "^4.0.4",
