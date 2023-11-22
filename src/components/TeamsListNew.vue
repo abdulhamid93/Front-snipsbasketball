@@ -61,7 +61,7 @@
 
     <div v-if="isPopupOpen" class="popup voting">
       <div class="popup-content">
-        <h2>Welcome to Snips Basketball Voting Platform </h2>
+        <h2>Vote </h2>
         <hr>
         <div class="row info">
           <img :src="selectedTeam.logo" alt="" />
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="note note-warning">
-          <p><i class="fa fa-info-circle "></i> Please note that the token is valid for a single use only.</p>
+          <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
         </div>
         <!-- <p>Enter Code</p> -->
         <input v-model="mobile" type="text" placeholder="Enter your Mobile" />

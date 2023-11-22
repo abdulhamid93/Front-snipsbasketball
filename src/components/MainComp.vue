@@ -22,10 +22,10 @@
             <li><a class="icon fa-instagram" href="#"></a></li>
         </ul>
     </section> -->
-    <br><br>
+    
     <!-- <Countdown></Countdown> -->
     <News @open-popup-in-c2="openPopupInC2"></News>
-
+    <br><br>
     <TeamsListNew></TeamsListNew>
     <!-- <TeamsList></TeamsList> -->
   
