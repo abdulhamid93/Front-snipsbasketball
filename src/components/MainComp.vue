@@ -1,4 +1,14 @@
 <template>
+    <section class="Shop-container " id="" data-image-width="1980">
+        <div class="Shop-title center">
+            <a href="" class="Shop-logo">
+                <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
+                    height="60">
+                <span style="margin-left: 20px;color:#555">Shop Now At Difco Delivery</span>
+            </a>
+        </div>
+    </section>
+
     <!-- <section class="section hero-section bg-image context-dark">
         <div class="container">
             <div class="row">
@@ -22,13 +32,33 @@
             <li><a class="icon fa-instagram" href="#"></a></li>
         </ul>
     </section> -->
-    
+
     <!-- <Countdown></Countdown> -->
     <News @open-popup-in-c2="openPopupInC2"></News>
     <br><br>
     <TeamsListNew></TeamsListNew>
     <!-- <TeamsList></TeamsList> -->
-  
+    <section class="Download-container " id="" data-image-width="1980">
+        <div class="Download-title center">
+            <a href="" class="Download-logo">
+                <div>
+                    <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
+                        height="80">
+                </div>
+                <div>
+                    <span style="margin-left: 20px;color:#555">Download the Difco Delivery App</span>
+                    <div class="stores">
+                        <img src="https://staging.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
+                            height="40">
+                        <img src="https://staging.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
+                            height="40">
+                    </div>
+
+                </div>
+
+            </a>
+        </div>
+    </section>
     <div class="go_top" :class="{ 'show_go_top': showGoTop }" @click="goToTop">
         <img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
     </div>
@@ -55,7 +85,7 @@ export default {
             showGoTop: false,
         };
     },
-    components: { TeamsList, TeamsResultsModal, News, TeamsListNew,Countdown },
+    components: { TeamsList, TeamsResultsModal, News, TeamsListNew, Countdown },
     mounted() {
         console.log('test on mounted');
         if (typeof window !== 'undefined') {
@@ -85,3 +115,34 @@ export default {
     },
 };
 </script>
+<style>
+.Shop-container {
+    background: #d1d3d4;
+    padding: 5px;
+}
+.Download-container{
+    background: #fff;
+    padding: 5px;
+}
+.Shop-container img ,.Download-container img{
+    border-radius: 5px;
+}
+.Download-container .stores img{
+    padding: 0px;
+    margin: 12px;
+    border-radius: 5px;
+}
+.Download-container .Download-logo{
+    display: flex;
+    margin-top: 20px;
+}
+.Shop-title.center,.Download-title.center {
+    display: table;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.Shop-title.center span {
+    font-weight: bold;
+}
+</style>

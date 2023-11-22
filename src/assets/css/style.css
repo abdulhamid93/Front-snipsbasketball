@@ -1494,7 +1494,7 @@ p:empty {
   margin: 0;
   border-bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 15px 0;
+  padding: 0;
   transition: all 0.4s ease-out;
 }
 

@@ -324,7 +324,7 @@ hr:not([size]) {
   display: inline-block;
   width: 18%;
   background: #d1d3d4;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 0px 8px 18px rgba(34, 35, 58, 0.2);
   padding: 12px;
   border-radius: 25px;
   min-height: 280px;
