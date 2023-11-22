@@ -115,6 +115,8 @@ import Pusher from 'pusher-js';
 
 import eventBus from './../eventBus';
 import { useRoute } from 'vue-router';
+import moment from 'moment';
+
 export default {
   name: 'News',
 
@@ -159,6 +161,13 @@ export default {
     // Listen for the 'vote.updated' event
     channel.listen('.vote.updated', event => {
       this.teams = event.teams.teams;
+
+
+      // Update the 'updated_at' field for each team
+      this.teams.forEach(team => {
+        team.updated_at = moment(team.updated_at).fromNow();
+      });
+
       this.sortTeamsByTotal();
       // Set the changed team
       const newChangedIndex = event.teams.teams.findIndex(

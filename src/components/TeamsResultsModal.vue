@@ -41,6 +41,8 @@ import eventBus from './../eventBus';
 
 import { useRoute } from 'vue-router';
 import { baseURL } from '@/config';
+import moment from 'moment';
+
 export default {
 
     name: 'TeamsResultsModal',
@@ -89,11 +91,13 @@ export default {
             this.message = event.message;
             this.results = event.teams.teams;
             this.teams = event.teams.teams;
-            this.sortTeamsByTotal();
-            console.log('this.teams');
-            console.log(this.teams);
-            console.log('this.teams');
 
+            // Update the 'updated_at' field for each team
+            this.teams.forEach(team => {
+                team.updated_at = moment(team.updated_at).fromNow();
+            });
+
+            this.sortTeamsByTotal();
         });
 
     },
