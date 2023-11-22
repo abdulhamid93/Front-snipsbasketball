@@ -1,24 +1,24 @@
 
 <template>
   <div class="blog-slider u-repeater-teams" id="teams_01c3">
-    <div class="u-container-layout u-valign-middle u-container-layout-1 u-align-center u-container-align-center">
+    <!-- <div class="u-container-layout u-valign-middle u-container-layout-1 u-align-center u-container-align-center">
       <h2 class="u-text u-text-1"> Vote Now</h2>
       <p class="u-large-text u-text u-text-variant u-text-2">Vote for Your Favorite Teams
 
       </p>
-    </div>
+    </div> -->
     <div>
       <div class="blog-slider__item swiper-slide-active" v-for="(team, index) in teams" :key="index">
-        <div class="blog-slider__img">
+        <!-- <div class="blog-slider__img">
 
           <img :src="team.logo" alt="" />
-        </div>
-        <div class="blog-slider__content">
-
+        </div> -->
+        <div class="blog-slider__content ">
+          <img :src="team.logo" alt="" />
           <div class="blog-slider__title">{{ team.name }}</div>
           <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
-          <div class="blog-slider__text">{{ team.summary }}</div>
-          <a @click="openPopup(team)" class="blog-slider__button">Vote </a>
+          <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
+          <a @click="openPopup(team)" class="blog-slider__button">VOTE NOW </a>
         </div>
       </div>
       <!-- <swiper-slide class="blog-slider__item swiper-slide">
@@ -84,7 +84,7 @@
         <div v-if="isMessageVisible" :class="['message', messageType]">
           {{ message }}
         </div>
-        <button class="btn submit blog-slider__button" @click="sendBroadcast(selectedTeam)">Vote</button>
+        <button class="btn submit blog-slider__button" @click="sendBroadcast(selectedTeam)">VOTE NOW</button>
         <button class="btn close" @click="isPopupOpen = false">X</button>
       </div>
     </div>
@@ -201,6 +201,15 @@ export default {
   box-sizing: border-box;
 }
 
+.blog-slider__content img {
+  margin: 0 auto;
+  width: 66%;
+}
+
+.blog-slider__content {
+  text-align: center;
+}
+
 h2.p-title {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -282,10 +291,10 @@ hr:not([size]) {
 .blog-slider .blog-slider__button {
   display: inline-flex;
   background-image: linear-gradient(147deg, #000 0%, #555 74%);
-  padding: 7px 25px;
-
+  padding: 7px 12px;
+  font-weight: bold;
   letter-spacing: 1px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .blog-slider .u-text.u-text-1 {
@@ -308,20 +317,20 @@ hr:not([size]) {
 }
 
 .blog-slider.u-repeater-teams {
-  width: 88% !important;
+  width: 96% !important;
 }
 
 .blog-slider .blog-slider__item {
   display: inline-block;
-  width: 28%;
-  background: #fff;
+  width: 18%;
+  background: #d1d3d4;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 25px;
+  padding: 12px;
   border-radius: 25px;
   min-height: 280px;
   margin-bottom: 33px;
-  margin-right: 3%;
-  margin-left: 2%;
+  margin-right: 1%;
+  margin-left: 1%;
   position: relative;
 }
 
@@ -352,9 +361,9 @@ p.u-large-text {
 }
 
 .blog-slider .blog-slider__content {
-  padding-left: 15px;
+  padding-left: 5px;
   width: calc(100% - 10px);
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .blog-slider .blog-slider__img img {
@@ -545,6 +554,7 @@ p.u-large-text {
   margin-bottom: 15px;
   display: block;
   font-weight: 500;
+  font-size: 12px;
 }
 
 .blog-slider__title {
@@ -568,7 +578,7 @@ p.u-large-text {
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
-  box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+  box-shadow: 0px 14px 80px rgba(22, 56, 56, 0.4);
   text-decoration: none;
   font-weight: 500;
   justify-content: center;
