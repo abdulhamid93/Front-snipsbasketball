@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="hero-text-box">
-                        <h2 class="hero-text-style-2"><span>VOTE</span>
+                        <h2 class="hero-text-style-2"><span>VOTE</span><br>
                         <span>& SUPPORT</span></h2>
                         <h3>YOUR FAVOURITE TEAM!</h3>
                     </div>

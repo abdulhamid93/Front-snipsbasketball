@@ -26,8 +26,12 @@
   font-size: 50px;
 }
 
-.hero-text-box h2{
+.hero-text-box h2 span{
+  display: initial;
   background-color: red;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 72px;
 }
 
 .hero-text-style-1 {
