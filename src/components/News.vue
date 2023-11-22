@@ -38,6 +38,7 @@
                                         background: team.color,
                                         'padding-left': '5px',
                                         color: '#fff',
+                                        
                                     }"
                                 >
                                     {{ team.total }}
