@@ -31,7 +31,8 @@
   background-color: red;
   font-weight: bold;
   font-size: 70px;
-  line-height: 72px;
+  line-height: 90px;
+  padding: 10px;
 }
 
 .hero-text-style-1 {
