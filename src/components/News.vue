@@ -3,10 +3,10 @@
   <section class="section hero-section bg-image context-dark">
     <div class="">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6">
           <img src="https://staging.snipsbasketball.com/storage/general/logo-1.png" />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6">
           <div class="hero-text-box">
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
               <span>& SUPPORT</span>
@@ -14,32 +14,30 @@
             <h3>YOUR FAVOURITE TEAM!</h3>
           </div>
         </div>
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-4 col-sm-12 mx-auto">
+          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">CURRENT STANDING</h4>
           <tbody class="result-table">
-            <tr v-for="(team, index) in teams" :key="index">
-              <td class="result-team logo" style="width: 25%; text-align: center">
-                <span style="margin-right: 5px; color: #fff">{{
-                  index + 1
-                }}</span>
-                <img :src="team.logo" width="35" />
-                <span></span>
-              </td>
-              <td style="position: relative; width: 75%">
-                <div class="bar-fill" :style="{
-                  width:
-                    calculatePercentage(team.total) +
-                    '%',
-                  background: team.color,
-                  'padding': '8px',
-                  color: '#fff',
-                  height: '44px',
-
-                }">
-                  {{ team.total }}
-                </div>
-              </td>
-            </tr>
-          </tbody>
+  <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
+    <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px !important;">
+      <span style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{ index + 1 }}</span>
+      <img :src="team.logo" width="35" style="max-height: 40px !important;" />
+      <span style="max-height: 40px !important; overflow: hidden !important;"></span>
+    </td>
+    <td style="position: relative; width: 75%; max-height: 40px !important;">
+      <div class="bar-fill" :style="{
+        width: calculatePercentage(team.total) + '%',
+        background: team.color,
+        padding: '15px',
+        color: '#fff',
+        'font-weight': 'bold',
+        'font-size': '18px',
+        height: '100% !important',  // Adjust the height as needed
+      }">
+        {{ team.total }}
+      </div>
+    </td>
+  </tr>
+</tbody>
         </div>
       </div>
     </div>
@@ -76,12 +74,11 @@
         <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80" />
         <span style="margin-left: 20px; color: #df2020">live Results:</span>
       </h2>
-      <table>
+      <!-- <table>
         <thead>
           <tr>
             <th style="width: 240px">Team Name</th>
             <th>Result</th>
-            <!-- <th ></th> -->
             <th>%</th>
           </tr>
         </thead>
@@ -102,7 +99,7 @@
             <td>{{ calculatePercentage(team.total) }}</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </template>
@@ -228,6 +225,19 @@ export default {
 
 
 <style scoped>
+.max-height-50 {
+    max-height: 40px !important;
+    height: 40px !important;
+    overflow: hidden !important;
+  }
+  .max-height-50 td,
+  .max-height-50 span,
+  .max-height-50 img {
+    height: 40px !important;
+    max-height: 40px !important;
+    overflow: hidden !important;
+  }
+
 /* Add any additional styles as needed */
 .results tr {
   border-bottom: 1px solid #f2f2f2;
@@ -272,9 +282,5 @@ export default {
 
 .result-table .logo {
   text-align: center;
-}
-
-.bar-fill {
-  margin: 10px 0;
 }
 </style>
