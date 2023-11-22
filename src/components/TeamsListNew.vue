@@ -99,6 +99,9 @@ import { defineComponent, ref, onMounted } from 'vue';
 import { inject } from 'vue';
 import { useRoute } from 'vue-router';
 import { baseURL } from '@/config';
+import moment from 'moment';
+import LaravelEcho from 'laravel-echo';
+
 export default {
 
   name: 'TeamsListNew',
@@ -143,6 +146,41 @@ export default {
     if (token.value !== undefined && token.value !== null && token.value !== '')
       this.token = token.value;
     console.log('token.value' + token.value);
+
+    // subscribe to channel
+    const echo = new LaravelEcho({
+      broadcaster: 'pusher',
+      key: '46bb874b7ddecccc4d34',
+      cluster: 'eu',
+      encrypted: true,
+    });
+
+    // Subscribe to the 'vote-channel'
+    const channel = echo.channel('vote-channel');
+
+    // Listen for the 'vote.updated' event
+    channel.listen('.vote.updated', event => {
+      this.teams = event.teams.teams;
+
+
+      // Update the 'updated_at' field for each team
+      this.teams.forEach(team => {
+        team.updated_at = moment(team.updated_at).fromNow();
+      });
+
+      this.sortTeamsByTotal();
+      // Set the changed team
+      const newChangedIndex = event.teams.teams.findIndex(
+        (team, index) => team.total !== this.teams[index].total
+      );
+      this.changedTeam = event.teams.teams[newChangedIndex];
+
+      // Clear the changed team after 2 seconds
+      setTimeout(() => {
+        this.changedTeam = null;
+      }, 2000);
+    });
+
   },
   methods: {
     openPopup(team) {
