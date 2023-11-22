@@ -4,8 +4,8 @@
 
     <div class="title">
       <a @click="openPopupRes" class="page-logo">
-        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
-        <span style="margin-left: 20px;color:#df2020">live Results:</span>
+        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="60">
+        <span style="margin-left: 20px;color:#df2020;">live Results:</span>
       </a>
     </div>
     <ul>
@@ -28,30 +28,32 @@
 
   </section>
   <div class="modal" v-if="openPopupInC2">
-    <div class="modal-content">
+    <div class="modal-content results">
       <span class="close" @click="closeModal">&times;</span>
       <h2 class="p-title"><img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
-          alt="snipsbasketball" height="80">
-        <span style="margin-left: 20px;color:#df2020">live Results:</span>
+          alt="snipsbasketball" height="50">
+        <span style="margin-left: 20px;color:#df2020;font-size:  2.2rem;">live Results:</span>
       </h2>
       <table>
         <thead>
           <tr>
-            <th style="width: 240px;">Team Name</th>
+            <th style="width: 160px;">Team Name</th>
             <th>Result</th>
-            <!-- <th ></th> -->
-            <th>%</th>
+            <!--  -->
+            <th style="width: 80px;">%</th>
+            <th style="width: 120px;">Last Vote</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(team, index) in teams" :key="index">
-            <td class="result-team"> <img :src="team.logo" width="36"><span> {{ team.name }}</span></td>
+            <td class="result-team"> <img :src="team.logo" width="34"><span> {{ team.name }}</span></td>
 
             <td style="position: relative;">
-              <div class="bar-fill" :style="{ width: calculatePercentage(team.total) + '%' }"></div>
+              <div class="bar-fill" :style="{ width: (calculatePercentage(team.total) * 1.5) + '%' }"></div>
               {{ team.total.toFixed(0) }}
             </td>
-            <td> {{ calculatePercentage(team.total) }}</td>
+            <td> {{ calculatePercentage(team.total) }}%</td>
+            <td> {{ team.updated_at }}</td>
           </tr>
         </tbody>
       </table>
@@ -113,11 +115,16 @@ export default {
     // Listen for the 'vote.updated' event
     channel.listen('.vote.updated', (event) => {
       this.teams = event.teams.teams;
+
+      
+
       this.sortTeamsByTotal();
       // Set the changed team
       const newChangedIndex = event.teams.teams.findIndex((team, index) => team.total !== this.teams[index].total);
       this.changedTeam = event.teams.teams[newChangedIndex];
-
+      this.teams.forEach(team => {
+        team.updated_at = moment(team.updated_at).fromNow();
+      });
       // Clear the changed team after 2 seconds
       setTimeout(() => {
         this.changedTeam = null;
@@ -163,8 +170,8 @@ export default {
       return {}; // Return an empty object for other teams
     },
     openPopupRes() {
-      
-      this.openPopupInC2=true; 
+
+      this.openPopupInC2 = true;
     }
   },
 
@@ -177,6 +184,10 @@ export default {
 
 <style scoped>
 /* Add any additional styles as needed */
+.results tr {
+  border-bottom: 1px solid #f2f2f2;
+}
+
 .team-item-updated {
   background-color: #ffd1d1;
   /* Change this color as needed */

@@ -37,78 +37,78 @@ app.config.globalProperties.$moment = moment;
     app.use(router).use(store).use(vuetify).mount('#app');
   } catch (error) {
 
-    const teams = [
-      {
-          "id": 1,
-          "name": "Al Riyadi Basketball",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/al-riyadi-basketball-logo.png",
-          "total": 69,
-          "summary": null
-      },
-      {
-          "id": 2,
-          "name": "Beirut",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/beirut.png",
-          "total": 24,
-          "summary": null
-      },
-      {
-          "id": 3,
-          "name": "Antranik",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/antranik.png",
-          "total": 36,
-          "summary": null
-      },
-      {
-          "id": 4,
-          "name": "Champville",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/champvillelogo.png",
-          "total": 11,
-          "summary": null
-      },
-      {
-          "id": 5,
-          "name": "Antonin",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/antonin.png",
-          "total": 4,
-          "summary": null
-      },
-      {
-          "id": 6,
-          "name": "CS Sagesse",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/cs-sagesse-logo.png",
-          "total": 1,
-          "summary": null
-      },
-      {
-          "id": 7,
-          "name": "Hmem",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/hmemlogo2019.png",
-          "total": 3,
-          "summary": null
-      },
-      {
-          "id": 8,
-          "name": "Hoops",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/hoops-logo.png",
-          "total": 7,
-          "summary": null
-      },
-      {
-          "id": 9,
-          "name": "Mayrouba",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/mayrouba.png",
-          "total": 2,
-          "summary": null
-      },
-      {
-          "id": 10,
-          "name": "NSA",
-          "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/nsa.png",
-          "total": 6,
-          "summary": null
-      }
-    ];
+    // const teams = [
+    //   {
+    //       "id": 1,
+    //       "name": "Al Riyadi Basketball",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/al-riyadi-basketball-logo.png",
+    //       "total": 69,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 2,
+    //       "name": "Beirut",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/beirut.png",
+    //       "total": 24,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 3,
+    //       "name": "Antranik",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/antranik.png",
+    //       "total": 36,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 4,
+    //       "name": "Champville",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/champvillelogo.png",
+    //       "total": 11,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 5,
+    //       "name": "Antonin",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/antonin.png",
+    //       "total": 4,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 6,
+    //       "name": "CS Sagesse",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/cs-sagesse-logo.png",
+    //       "total": 1,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 7,
+    //       "name": "Hmem",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/hmemlogo2019.png",
+    //       "total": 3,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 8,
+    //       "name": "Hoops",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/hoops-logo.png",
+    //       "total": 7,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 9,
+    //       "name": "Mayrouba",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/mayrouba.png",
+    //       "total": 2,
+    //       "summary": null
+    //   },
+    //   {
+    //       "id": 10,
+    //       "name": "NSA",
+    //       "logo": "https:\/\/staging.snipsbasketball.com\/storage\/general\/nsa.png",
+    //       "total": 6,
+    //       "summary": null
+    //   }
+    // ];
 
       // Provide the 'teams' data to the application
       app.provide('teams', teams);
