@@ -1,24 +1,24 @@
 
 <template>
   <div class="blog-slider u-repeater-teams" id="teams_01c3">
-    <div class="u-container-layout u-valign-middle u-container-layout-1 u-align-center u-container-align-center">
+    <!-- <div class="u-container-layout u-valign-middle u-container-layout-1 u-align-center u-container-align-center">
       <h2 class="u-text u-text-1"> Vote Now</h2>
       <p class="u-large-text u-text u-text-variant u-text-2">Vote for Your Favorite Teams
 
       </p>
-    </div>
+    </div> -->
     <div>
       <div class="blog-slider__item swiper-slide-active" v-for="(team, index) in teams" :key="index">
-        <div class="blog-slider__img">
+        <!-- <div class="blog-slider__img">
 
           <img :src="team.logo" alt="" />
-        </div>
-        <div class="blog-slider__content">
-          
+        </div> -->
+        <div class="blog-slider__content ">
+          <img :src="team.logo" alt="" />
           <div class="blog-slider__title">{{ team.name }}</div>
           <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
-          <div class="blog-slider__text">{{ team.summary }}</div>
-          <a @click="openPopup(team)" class="blog-slider__button">Vote </a>
+          <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
+          <a @click="openPopup(team)" class="blog-slider__button">VOTE NOW </a>
         </div>
       </div>
       <!-- <swiper-slide class="blog-slider__item swiper-slide">
@@ -59,10 +59,24 @@
     id="carousel_01c2">
 
 
-    <div v-if="isPopupOpen" class="popup">
+    <div v-if="isPopupOpen" class="popup voting">
       <div class="popup-content">
-        <h2>Vote for {{ selectedTeam.name }}</h2>
-        <img :src="selectedTeam.logo" alt="" />
+        <h2>Welcome to Snips Basketball Voting Platform </h2>
+        <hr>
+        <div class="row info">
+          <img :src="selectedTeam.logo" alt="" />
+          <div class="info-content">
+            <h3>{{ selectedTeam.name }}</h3>
+            <p>{{ selectedTeam.summary }}</p>
+          </div>
+          <div class="total-votes">
+            <span>Total Votes</span>
+            {{ selectedTeam.total }}
+          </div>
+        </div>
+        <div class="note note-warning">
+          <p><i class="fa fa-info-circle "></i> Please note that the token is valid for a single use only.</p>
+        </div>
         <!-- <p>Enter Code</p> -->
         <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
         <input v-model="token" type="text" placeholder="Enter your Code" />
@@ -70,7 +84,7 @@
         <div v-if="isMessageVisible" :class="['message', messageType]">
           {{ message }}
         </div>
-        <button class="btn submit" @click="sendBroadcast(selectedTeam)">Vote</button>
+        <button class="btn submit blog-slider__button" @click="sendBroadcast(selectedTeam)">VOTE NOW</button>
         <button class="btn close" @click="isPopupOpen = false">X</button>
       </div>
     </div>
@@ -161,7 +175,8 @@ export default {
           this.showMessage(response.data.message, 'error');
         } else if (response.data.status == "success") {
           // Display success message with animation
-
+          this.mobile = null;
+          this.token = null;
           this.showMessage(response.data.message, 'success');
           setTimeout(() => { this.isPopupOpen = false; }, 5000);
 
@@ -185,18 +200,103 @@ export default {
 * {
   box-sizing: border-box;
 }
-.blog-slider  .blog-slider__button:hover{
-  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
- 
+
+.blog-slider__content img {
+  margin: 0 auto;
+  width: 66%;
 }
-.blog-slider  .blog-slider__button {
+
+.blog-slider__content {
+  text-align: center;
+}
+
+h2.p-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+hr:not([size]) {
+  height: 1px;
+  background: #c8c3c3;
+}
+
+.note.note-warning {
+  background-color: #faeaa9;
+  border-color: #f3cc31;
+  color: black;
+}
+
+.note {
+  margin: 0 0 20px 0;
+  padding: 5px 10px 5px 5px;
+  border-left: 5px solid #eeeeee;
+  border-radius: 0 4px 4px 0;
+}
+
+.note p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.popup.voting img {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+
+.info {
+  display: flex;
+  position: relative;
+}
+
+.total-votes {
+  position: absolute;
+  right: 5px;
+  box-shadow: 4px 13px 30px 1px rgba(0, 6, 56, 0.2);
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  color: #555;
+  Padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.total-votes span {
+  font-size: 14px;
+  color: rgb(203, 205, 206);
+}
+
+.info img {
+  position: absolute;
+  left: 0
+}
+
+.info .info-content {
+  text-align: left;
+  padding-left: 130px;
+  padding-right: 100px;
+}
+
+.blog-slider .blog-slider__button:hover {
+  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+
+}
+
+.popup-content {
+  width: 65%;
+}
+
+.blog-slider .blog-slider__button {
   display: inline-flex;
   background-image: linear-gradient(147deg, #000 0%, #555 74%);
-  padding: 7px 25px;
-
+  padding: 7px 12px;
+  font-weight: bold;
   letter-spacing: 1px;
-  font-size: 15px;
+  font-size: 14px;
 }
+
 .blog-slider .u-text.u-text-1 {
   font-weight: 400;
   font-size: 3rem;
@@ -217,32 +317,40 @@ export default {
 }
 
 .blog-slider.u-repeater-teams {
-  width: 80% !important;
+  width: 96% !important;
 }
 
 .blog-slider .blog-slider__item {
   display: inline-block;
-  width: 28%;
-  background: #fff;
+  width: 18%;
+  background: #d1d3d4;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 25px;
+  padding: 12px;
   border-radius: 25px;
   min-height: 280px;
-  margin-bottom: 20px;
-  margin-right: 3%;
-  margin-left: 2%;
+  margin-bottom: 33px;
+  margin-right: 1%;
+  margin-left: 1%;
   position: relative;
 }
+
 .blog-slider .blog-slider__img::after {
   background-image: linear-gradient(147deg, #f2f2f2 0%, #ffffff 74%);
   opacity: 0;
 }
+
+p.u-large-text {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-bottom: 33px;
+}
+
 .blog-slider .blog-slider__img {
   width: 100px;
   flex-shrink: 0;
   height: 100px;
   background-image: linear-gradient(147deg, #f2f2f2 24%, #ffffff 74%);
-  box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
+  box-shadow: 4px 13px 30px 1px rgba(22, 56, 56, 0.2);
   border-radius: 20px;
   transform: translateX(30px);
   overflow: hidden;
@@ -253,9 +361,9 @@ export default {
 }
 
 .blog-slider .blog-slider__content {
-  padding-left: 15px;
+  padding-left: 5px;
   width: calc(100% - 10px);
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .blog-slider .blog-slider__img img {
@@ -446,6 +554,7 @@ export default {
   margin-bottom: 15px;
   display: block;
   font-weight: 500;
+  font-size: 12px;
 }
 
 .blog-slider__title {
@@ -469,7 +578,7 @@ export default {
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
-  box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+  box-shadow: 0px 14px 80px rgba(22, 56, 56, 0.4);
   text-decoration: none;
   font-weight: 500;
   justify-content: center;
@@ -523,6 +632,44 @@ export default {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 5px;
   }
+
+  .blog-slider .blog-slider__item {
+    display: inline-block;
+    width: 99%;
+  }
+
+  .blog-slider__content {
+    margin-top: 10px;
+  }
+
+  .hero-text-style-2 {
+
+    font-size: 40px !important;
+
+  }
+
+  .blog-slider__text {
+
+    min-height: 70px;
+  }
+
+  .hero-text-style-1.text-primary1 {
+    font-size: 40px !important;
+    margin-top: 0.1em !important;
+  }
+
+  .blog-slider {
+    min-height: 500px;
+    height: auto;
+    margin: 50px auto;
+  }
+
+  popup-content {
+
+    min-width: 90%;
+
+    width: 90%;
+  }
 }
 
 .blog-slider__pagination .swiper-pagination-bullet {
@@ -547,5 +694,4 @@ export default {
     height: 11px;
     width: 30px;
   }
-}
-</style>
+}</style>

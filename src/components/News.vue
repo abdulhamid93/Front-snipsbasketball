@@ -53,8 +53,8 @@
 
     <div class="title">
       <a @click="openPopupRes" class="page-logo">
-        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80">
-        <span style="margin-left: 20px;color:#df2020">live Results:</span>
+        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="60">
+        <span style="margin-left: 20px;color:#df2020;">live Results:</span>
       </a>
     </div>
     <ul>
@@ -244,6 +244,10 @@ export default {
 
 <style scoped>
 /* Add any additional styles as needed */
+.results tr {
+  border-bottom: 1px solid #f2f2f2;
+}
+
 .team-item-updated {
     background-color: #ffd1d1;
     /* Change this color as needed */

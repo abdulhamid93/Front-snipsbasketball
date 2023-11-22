@@ -9,16 +9,19 @@
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
     },
     "dependencies": {
+        "@chenfengyuan/vue-countdown": "^2.1.2",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vue/compat": "^3.1.0",
         "axios": "^1.6.1",
+        "dayjs": "^1.11.10",
         "laravel-echo-vue3": "^1.0.1",
         "moment": "^2.29.4",
         "pinia": "^2.0.29",
         "swiper": "^11.0.4",
         "vite": "^4.0.4",
-        "vue": "^3.1.0",
+        "vue": "^3.3.8",
         "vue-echo-laravel": "^1.0.0",
+        "vue-radial-progress": "^0.3.2",
         "vue-router": "^4.1.6",
         "vuetify": "^3.1.2"
     },
