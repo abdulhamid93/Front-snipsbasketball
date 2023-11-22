@@ -135,7 +135,7 @@ export default {
 .bar-fill {
     /* position: absolute; */
     height: 20px;
-    background-color: #4caf50;
+    /* background-color: #4caf50; */
     transition: width 0.5s ease;
     display: inline-block;
 }
