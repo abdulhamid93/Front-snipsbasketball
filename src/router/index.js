@@ -7,10 +7,25 @@ const routes = [
         component: () => import('../views/Home.vue'),
     },
     {
-        path: '/:token',
-        name: 'HomeVote',
-        component: () => import('../views/Home.vue'),
+        path: '/privacy-policy',
+        name: 'PrivacyPolicy',
+        component: () => import('../views/PrivacyPolicy.vue'),
     },
+    {
+        path: '/terms',
+        name: 'terms',
+        component: () => import('../views/TermsConditions.vue'),
+    },
+    {
+        path: '/cookie',
+        name: 'cookie',
+        component: () => import('../views/CookiePreferences.vue'),
+    },
+    // {
+    //     path: '/:token',
+    //     name: 'HomeVote',
+    //     component: () => import('../views/Home.vue'),
+    // },
     {
         path: '/page/about',
         name: 'About',

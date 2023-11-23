@@ -3,22 +3,28 @@
   <section class="section hero-section bg-image context-dark">
     <div class="">
       <div class="row">
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4 col-sm-6 main-logo-img">
           <img src="https://staging.snipsbasketball.com/storage/general/logo-1.png" />
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="hero-text-box">
+          <div class="hero-text-box mobile">
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
               <span>& SUPPORT</span>
             </h2>
             <h3>YOUR FAVOURITE TEAM!</h3>
           </div>
         </div>
-        <div class="col-md-4 col-sm-12 mx-auto">
+        <div class="col-md-4 col-sm-6 desktop">
+          <div class="hero-text-box ">
+            <h2 class="hero-text-style-2"><span>VOTE</span><br>
+              <span>& SUPPORT</span>
+            </h2>
+            <h3>YOUR FAVOURITE TEAM!</h3>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 mx-auto res-table">
           <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">CURRENT STANDING</h4>
           <tbody class="result-table">
   <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
-    <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px !important;">
+    <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
       <span style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{ index + 1 }}</span>
       <img :src="team.logo" width="35" style="max-height: 40px !important;" />
       <span style="max-height: 40px !important; overflow: hidden !important;"></span>
@@ -31,7 +37,7 @@
         color: '#fff',
         'font-weight': 'bold',
         'font-size': '18px',
-        height: '100% !important',  // Adjust the height as needed
+        height: '100% ',  // Adjust the height as needed
       }">
         {{ team.total }}
       </div>

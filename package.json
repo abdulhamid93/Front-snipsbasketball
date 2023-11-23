@@ -10,6 +10,9 @@
     },
     "dependencies": {
         "@chenfengyuan/vue-countdown": "^2.1.2",
+        "@fortawesome/free-brands-svg-icons": "^6.4.2",
+        "@fortawesome/free-solid-svg-icons": "^6.4.2",
+        "@fortawesome/vue-fontawesome": "^3.0.0-5",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vue/compat": "^3.1.0",
         "axios": "^1.6.1",

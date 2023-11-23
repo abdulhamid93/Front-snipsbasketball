@@ -1,7 +1,7 @@
 <template>
     <section class="Shop-container " id="" data-image-width="1980">
         <div class="Shop-title center">
-            <a href="" class="Shop-logo">
+            <a href="http://shop.difcogroup.com/" class="Shop-logo">
                 <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
                     height="60">
                 <span style="margin-left: 20px;color:#555">Shop Now At Difco Delivery</span>
@@ -40,7 +40,7 @@
     <!-- <TeamsList></TeamsList> -->
     <section class="Download-container " id="" data-image-width="1980">
         <div class="Download-title center">
-            <a href="" class="Download-logo">
+            <div class="Download-logo" >
                 <div>
                     <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
                         height="80">
@@ -48,15 +48,15 @@
                 <div>
                     <span style="margin-left: 20px;color:#555">Download the Difco Delivery App</span>
                     <div class="stores">
-                        <img src="https://staging.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
-                            height="40">
-                        <img src="https://staging.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
-                            height="40">
+                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img src="https://staging.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
+                            height="40"></a>
+                       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img src="https://staging.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
+                            height="40"></a> 
                     </div>
 
                 </div>
 
-            </a>
+            </div>
         </div>
     </section>
     <div class="go_top" :class="{ 'show_go_top': showGoTop }" @click="goToTop">

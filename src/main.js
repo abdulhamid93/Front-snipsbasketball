@@ -15,11 +15,15 @@ import './assets/js/nicepage.js';
 import axios from 'axios';
 import moment from 'moment';
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const app = createApp(App);
-
+library.add(faFacebook);
+library.add(faTwitter);
 app.config.globalProperties.$moment = moment;
-
+ app.component("font-awesome-icon", FontAwesomeIcon);
 // Fetch data and provide it to the entire application
 (async () => {
   try {
@@ -116,8 +120,5 @@ app.config.globalProperties.$moment = moment;
       app.use(router).use(store).use(vuetify).mount('#app');
 
     console.error('Error fetching teams:', error);
-  }
+  }
 })();
-
-
-

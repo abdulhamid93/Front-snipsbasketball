@@ -1576,7 +1576,7 @@ p:empty {
   }
 }
 .page-copyright {
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 35px;
 }
 

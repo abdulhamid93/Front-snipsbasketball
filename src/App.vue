@@ -32,47 +32,49 @@
         <v-main>
             <router-view />
         </v-main>
-        <footer class="page-footer bg-dark ">
-            <!-- <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball"
-                            height="150">
+        <footer class="page-footer  ">
+            <div class="container">
+                <div class=" top-footer">
+                    <div class="logo-footer">
+                        <a href="/"> <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
+                                alt="snipsbasketball" height="80"></a>
+                        <ul class="social">
+                            <font-awesome-icon icon="twitter" />
+                            <font-awesome-icon icon="facebook" />
+                            <font-awesome-icon icon="phone" />
+                           
+                        </ul>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-                        <aside class="widget widget--transparent widget__footer widget__about">
-                            <div class="widget__header">
-                                <h3 class="widget__title">About us</h3>
-                            </div>
-                            <div class="widget__content">
-                                <p>We're working on something awesome! Stay tuned for our basketball updates.</p>
-                                <div class="person-detail">
-                                    <p><i class="ion-home"></i>Ferzol, Global Snacks Factory Zahle District, Lebanon</p>
-                                    <p><i class="ion-earth"></i><a
-                                            href="https://snipsbasketball.com">https://snipsbasketball.com</a></p>
-                                    <p><i class="ion-email"></i><a
-                                            href="mailto:info@snipsbasketball.com">info@snipsbasketball.com</a></p>
-                                </div>
-                            </div>
-                        </aside>
+                    <div class="address">
+                        <p>
+                            Sin El Fil, Daoud Ammoun St.<br>
+                            Qubic Square Business Center<br>
+                            13th Floor - Beirut, Lebanon<br>
+                            +961 1 495 380<br>
+                        </p>
                     </div>
-
                 </div>
-            </div> -->
+            </div>
             <div class="page-footer__bottom">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-sm-6">
+                        <div class="col-md-12 col-sm-12">
                             <div class="page-copyright">
-                                <p>©2023 snipsbasketball. All right reserved.</p>
+                                <ul>
+                                    <li><a href="/privacy-policy">PRIVACY POLICY </a></li>
+                                    <li><a href="/terms">TERMS & CONDITIONS</a></li>
+                                    <li><a href="/cookie">COOKIE PREFERENCES</a></li>
+                                    <li class="last">©2023 snipsbasketball. All right reserved.</li>
+                                </ul>
+
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <!-- <div class="col-md-4 col-sm-6">
                             <div class="page-footer__social">
                                 <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
                                     alt="snipsbasketball" height="50">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -80,5 +82,87 @@
     </v-app>
 </template>
 
-<script setup>
+<script >
+// @ is an alias to /src
+
+
+
+/* import font awesome icon component */
+import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
+//library.add(faTwitter, faFacebook, faInstagram);
+// Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+
+
 </script>
+<style>
+.fa-twitter, .fa-facebook, .fa-instagram {
+  font-size: 24px;
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.page-copyright ul {
+    /* width: 400px; */
+    display: block;
+    margin: 0 auto;
+}
+
+.page-copyright ul li {
+    padding: 5px 3px;
+  display: inline-block;
+}
+
+li.last {
+    width: 300px;
+    font-size: 12px;
+    line-height: 2.8em;
+}
+
+.page-copyright ul li a {
+    font-size: 12px;
+}
+.page-footer{
+    background-color: #d1d3d4;
+}
+.page-footer,
+body .page-footer__bottom {
+    background-color: #d1d3d4;
+}
+
+.page-footer .logo-footer {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+}
+
+.page-footer .address {
+    width: 290px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.top-footer {
+    padding-top: 40px;
+    width: 420px;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.page-footer .address p {
+    padding-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.page-copyright {
+  text-align: center; /* Center the content */
+}
+.page-footer P {
+    color: black;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+</style>

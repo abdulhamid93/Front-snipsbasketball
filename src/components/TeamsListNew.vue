@@ -673,7 +673,7 @@ p.u-large-text {
 
   .blog-slider .blog-slider__item {
     display: inline-block;
-    width: 99%;
+    width: 48%;
   }
 
   .blog-slider__content {
