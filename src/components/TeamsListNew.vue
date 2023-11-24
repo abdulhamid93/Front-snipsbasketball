@@ -8,7 +8,7 @@
       </p>
     </div> -->
     <div>
-      <div class="blog-slider__item swiper-slide-active" v-for="(team, index) in teams" :key="index">
+      <div class="blog-slider__item swiper-slide-active" v-for="(team, index) in sortedTeams" :key="index">
         <!-- <div class="blog-slider__img">
 
           <img :src="team.logo" alt="" />
@@ -124,14 +124,17 @@ export default {
   },
 
 
-  computed: function () {
-
+  computed: {
+    sortedTeams: function () {
+      // Sort the teams alphabetically
+      return this.teams.slice().sort((a, b) => a.name.localeCompare(b.name));
+    }
   },
 
   created: function () {
     this.teams = inject('teams');
-    // this.sortedTeams = this.teams;
-    // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
+    // this.sortedTeams = inject('teams');
+    // this.sortedTeams = this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
     // var swiper = new Swiper('.blog-slider', {
     //   spaceBetween: 30,
     //   effect: 'fade',
@@ -187,8 +190,7 @@ export default {
       setTimeout(() => {
         this.changedTeam = null;
       }, 2000);
-      // this.sortedTeams = this.teams;
-      // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
+      // this.sortedTeams = this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
     });
 
   },
@@ -227,8 +229,6 @@ export default {
           this.token = null;
           this.showMessage(response.data.message, 'success');
           setTimeout(() => { this.isPopupOpen = false; }, 5000);
-          // this.sortedTeams = this.teams;
-          // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
         }
 
       } catch (error) {
@@ -600,7 +600,7 @@ p.u-large-text {
 
 .blog-slider__code {
   color: #7b7992;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   display: block;
   font-weight: 500;
   font-size: 12px;
