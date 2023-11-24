@@ -39,9 +39,10 @@
                         <a href="/"> <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
                                 alt="snipsbasketball" height="80"></a>
                         <ul class="social">
-                            <font-awesome-icon icon="twitter" />
-                            <font-awesome-icon icon="facebook" />
-                            <font-awesome-icon icon="phone" />
+                            <a href="/" class="social-item"><img src="./assets/img/insta-icon.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/fb-icon.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/tick-icon.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/youtube-icon.png"/></a>
                            
                         </ul>
                     </div>
@@ -66,15 +67,14 @@
                                     <li><a href="/cookie">COOKIE PREFERENCES</a></li>
                                     <li class="last">©2023 snipsbasketball. All right reserved.</li>
                                 </ul>
-
+                                <div style="text-align: center;">
+                                POWERED BY <a target="_blank" href="https://www.mews.agency/">MEWS</a>
+                            </div>
                             </div>
                         </div>
-                        <!-- <div class="col-md-4 col-sm-6">
-                            <div class="page-footer__social">
-                                <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
-                                    alt="snipsbasketball" height="50">
-                            </div>
-                        </div> -->
+                        <div class="col-md-12 col-sm-12">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,18 @@ import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg
   font-size: 24px;
   margin-right: 10px; /* Adjust as needed */
 }
+ul.social{
+    margin-top: 10px!important;
+    margin-bottom: 10px!important;
+}
+.page-copyright ul{
+    margin-bottom: 5px!important;
+}
+ul.social .social-item img{
+    width: 30px;
+    /* height: 30px; */
 
+}
 .page-copyright ul {
     /* width: 400px; */
     display: block;
@@ -115,12 +126,14 @@ import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg
 
 li.last {
     width: 300px;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 2.8em;
+    font-weight: 500;
 }
 
 .page-copyright ul li a {
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: 500;
 }
 .page-footer{
     background-color: #d1d3d4;
@@ -155,6 +168,7 @@ body .page-footer__bottom {
     padding-left: 10px;
     margin-top: 0px;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 .page-copyright {
   text-align: center; /* Center the content */

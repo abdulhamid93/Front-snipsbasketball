@@ -16,7 +16,7 @@
         <div class="blog-slider__content ">
           <img :src="team.logo" alt="" />
           <div class="blog-slider__title">{{ team.name }}</div>
-          
+
           <span class="blog-slider__code">Total Votes: {{ team.total }}</span>
           <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
           <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
@@ -68,8 +68,9 @@
         <div class="row info">
           <img :src="selectedTeam.logo" alt="" />
           <div class="info-content">
-            <h3>{{ selectedTeam.name }}</h3>
-            <p>{{ selectedTeam.summary }}</p>
+            <br>
+            <h3 class="t-2">{{ selectedTeam.name }}</h3>
+            <p><br></p>
           </div>
           <div class="total-votes">
             <span>Total Votes</span>
@@ -80,8 +81,9 @@
           <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
         </div>
         <!-- <p>Enter Code</p> -->
-        <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
         <input v-model="token" type="text" placeholder="Enter your Code" />
+        <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
+
         <!-- Message Display -->
         <div v-if="isMessageVisible" :class="['message', messageType]">
           {{ message }}
@@ -209,9 +211,18 @@ export default {
         this.isMessageVisible = false;
       }, 5000); // 3000 milliseconds = 3 seconds, adjust as needed
     },
+    isValidPhoneNumber: function (phoneNumber) {
+      // Define the regular expression for the phone number pattern
+      var phoneNumberPattern = /^(70|71|76|78|79|80|81)\d{6}$/;
+
+      // Check if the provided phoneNumber matches the pattern
+      return phoneNumberPattern.test(phoneNumber);
+    },
     async sendBroadcast(team) {
-      console.log('Broadcasting for team:', team);
-      try {
+      if (!this.isValidPhoneNumber(this.mobile) && this.mobile) {
+         this.showMessage("Mobile Number is invalid.", 'error');
+      } else {
+        try {
         const response = await axios.post(
           'https://staging.snipsbasketball.com/api/v1/vote',
           { team_id: team.id, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
@@ -234,6 +245,9 @@ export default {
       } catch (error) {
         console.error('Error sending broadcast:', error);
       }
+      }
+      console.log('Broadcasting for team:', team);
+      
     },
   },
 
@@ -248,6 +262,10 @@ export default {
 
 * {
   box-sizing: border-box;
+}
+
+h3.t-2 {
+  font-size: 40px;
 }
 
 .blog-slider__content img {

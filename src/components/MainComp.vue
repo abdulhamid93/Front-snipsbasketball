@@ -46,7 +46,10 @@
                         height="80">
                 </div>
                 <div>
-                    <span style="margin-left: 20px;color:#555">Download the DIFCO DELIVERY App</span>
+                    <span style="    margin-left: 15px;
+    color: #000;
+    font-weight: 500;
+    font-size: 17px;">Download the DIFCO DELIVERY App</span>
                     <div class="stores">
                         <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img src="https://staging.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
                             height="40"></a>
@@ -134,7 +137,8 @@ export default {
 }
 .Download-container .Download-logo{
     display: flex;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 .Shop-title.center,.Download-title.center {
     display: table;
