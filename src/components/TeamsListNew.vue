@@ -187,8 +187,8 @@ export default {
       setTimeout(() => {
         this.changedTeam = null;
       }, 2000);
-      this.sortedTeams = this.teams;
-      this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
+      // this.sortedTeams = this.teams;
+      // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
     });
 
   },
