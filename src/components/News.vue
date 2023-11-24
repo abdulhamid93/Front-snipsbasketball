@@ -33,7 +33,7 @@
       <div class="bar-fill" :style="{
         width: calculatePercentage(team.total) + '%',
         background: team.color,
-        padding: '15px',
+        padding: '5px',
         color: '#fff',
         'font-weight': 'bold',
         'font-size': '18px',
