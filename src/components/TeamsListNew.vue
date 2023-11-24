@@ -16,6 +16,8 @@
         <div class="blog-slider__content ">
           <img :src="team.logo" alt="" />
           <div class="blog-slider__title">{{ team.name }}</div>
+          
+          <span class="blog-slider__code">Total Votes: {{ team.total }}</span>
           <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
           <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
           <a @click="openPopup(team)" class="blog-slider__button">VOTE NOW </a>
@@ -115,15 +117,21 @@ export default {
       message: '',
       isMessageVisible: false,
       messageType: '',
+      sortedTeams: [],
       teams: [
       ],
     };
   },
 
 
+  computed: function () {
+
+  },
 
   created: function () {
     this.teams = inject('teams');
+    // this.sortedTeams = this.teams;
+    // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
     // var swiper = new Swiper('.blog-slider', {
     //   spaceBetween: 30,
     //   effect: 'fade',
@@ -168,7 +176,7 @@ export default {
         team.updated_at = moment(team.updated_at).fromNow();
       });
 
-      this.sortTeamsByTotal();
+      //this.sortTeamsByTotal();
       // Set the changed team
       const newChangedIndex = event.teams.teams.findIndex(
         (team, index) => team.total !== this.teams[index].total
@@ -179,6 +187,8 @@ export default {
       setTimeout(() => {
         this.changedTeam = null;
       }, 2000);
+      this.sortedTeams = this.teams;
+      this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
     });
 
   },
@@ -217,7 +227,8 @@ export default {
           this.token = null;
           this.showMessage(response.data.message, 'success');
           setTimeout(() => { this.isPopupOpen = false; }, 5000);
-
+          // this.sortedTeams = this.teams;
+          // this.sortedTeams.sort((a, b) => a.name.localeCompare(b.name));
         }
 
       } catch (error) {
@@ -732,4 +743,5 @@ p.u-large-text {
     height: 11px;
     width: 30px;
   }
-}</style>
+}
+</style>
