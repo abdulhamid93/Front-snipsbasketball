@@ -4,7 +4,7 @@
             <a href="http://shop.difcogroup.com/" class="Shop-logo">
                 <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
                     height="60">
-                <span style="margin-left: 20px;color:#555">Shop Now At Difco Delivery</span>
+                <span style="font-size:22px;margin-left: 20px;color:#000;text-transform: uppercase;">Shop Now At Difco Delivery</span>
             </a>
         </div>
     </section>
@@ -117,7 +117,7 @@ export default {
 </script>
 <style>
 .Shop-container {
-    background: #d1d3d4;
+    background: #a6a6a6;
     padding: 5px;
 }
 .Download-container{

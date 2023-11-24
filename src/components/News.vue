@@ -26,7 +26,7 @@
   <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
     <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
       <span style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{ index + 1 }}</span>
-      <img :src="team.light_logo" width="35" style="max-height: 40px !important;" />
+      <img :src="team.light_logo" width="40" style="max-height: 40px !important;" />
       <span style="max-height: 40px !important; overflow: hidden !important;"></span>
     </td>
     <td style="position: relative; width: 75%; max-height: 40px !important;">

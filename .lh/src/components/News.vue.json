@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1700814944935,
@@ -20,6 +20,10 @@
                 {
                     "date": 1700815315360,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n           <tbody class=\"result-table\">\r\n   <tr v-for=\"(team, index) in teams\" :key=\"index\" class=\"max-height-50\">\r\n     <td class=\"result-team logo\" style=\"width: 25%; text-align: center; max-height: 40px;\">\r\n       <span style=\"margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;\">{{ index + 1 }}</span>\r\n-      <img :src=\"team.light_logo\" width=\"35\"  />\r\n+      <img :src=\"team.light_logo\" width=\"35\" style=\"max-height: 40px !important;\" />\r\n       <span style=\"max-height: 40px !important; overflow: hidden !important;\"></span>\r\n     </td>\r\n     <td style=\"position: relative; width: 75%; max-height: 40px !important;\">\r\n       <div class=\"bar-fill\" :style=\"{\r\n"
+                },
+                {
+                    "date": 1700815849111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n           <tbody class=\"result-table\">\r\n   <tr v-for=\"(team, index) in teams\" :key=\"index\" class=\"max-height-50\">\r\n     <td class=\"result-team logo\" style=\"width: 25%; text-align: center; max-height: 40px;\">\r\n       <span style=\"margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;\">{{ index + 1 }}</span>\r\n-      <img :src=\"team.light_logo\" width=\"35\" style=\"max-height: 40px !important;\" />\r\n+      <img :src=\"team.light_logo\" width=\"40\" style=\"max-height: 40px !important;\" />\r\n       <span style=\"max-height: 40px !important; overflow: hidden !important;\"></span>\r\n     </td>\r\n     <td style=\"position: relative; width: 75%; max-height: 40px !important;\">\r\n       <div class=\"bar-fill\" :style=\"{\r\n"
                 }
             ],
             "date": 1700814944935,
