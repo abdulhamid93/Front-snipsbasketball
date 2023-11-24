@@ -600,7 +600,7 @@ p.u-large-text {
 
 .blog-slider__code {
   color: #7b7992;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   display: block;
   font-weight: 500;
   font-size: 12px;
