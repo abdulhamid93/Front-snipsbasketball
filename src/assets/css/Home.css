@@ -106,7 +106,6 @@
 .go_top {
   position: fixed;
   bottom: 20px;
-  /* bottom: 160px; */
   right: 20px;
   text-align: center;
   line-height: 60px;
@@ -114,10 +113,11 @@
   visibility: hidden;
   transition: all 0.3s;
   cursor: pointer;
-  -webkit-animation: bb_bounce 1.5s infinite;
-  -moz-animation: bb_bounce 1.5s infinite;
-  -ms-animation: bb_bounce 1.5s infinite;
-  animation: bb_bounce 1.5s infinite;
+  -webkit-animation: bb_bounce 1s infinite;
+  -moz-animation: bb_bounce 1s infinite;
+  -ms-animation: bb_bounce 1s infinite;
+  animation: bb_bounce 1s infinite;
+  z-index: 999999;
 }
 
 
