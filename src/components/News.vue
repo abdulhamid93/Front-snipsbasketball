@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-12 mx-auto res-table">
-          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">CURRENT STANDING</h4>
+          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">“LIVE RANKINGS</h4>
           <tbody class="result-table">
   <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
     <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
