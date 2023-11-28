@@ -21,29 +21,31 @@
           </div>
         </div>
         <div class="col-md-4 col-sm-12 mx-auto res-table">
-          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">“LIVE RANKINGS</h4>
+          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">LIVE RANKINGS</h4>
           <tbody class="result-table">
-  <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
-    <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
-      <span style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{ index + 1 }}</span>
-      <img :src="team.light_logo" width="40" style="max-height: 40px !important;" />
-      <span style="max-height: 40px !important; overflow: hidden !important;"></span>
-    </td>
-    <td style="position: relative; width: 75%; max-height: 40px !important;">
-      <div class="bar-fill" :style="{
-        width: calculatePercentage(team.total) + '%',
-        background: team.color,
-        padding: '5px',
-        color: '#fff',
-        'font-weight': 'bold',
-        'font-size': '18px',
-        height: '100% ',  // Adjust the height as needed
-      }">
-        {{ team.total }}
-      </div>
-    </td>
-  </tr>
-</tbody>
+            <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
+              <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
+                <span
+                  style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{
+                    index + 1 }}</span>
+                <img :src="team.light_logo" width="40" style="max-height: 40px !important;" />
+                <span style="max-height: 40px !important; overflow: hidden !important;"></span>
+              </td>
+              <td style="position: relative; width: 75%; max-height: 40px !important;">
+                <div class="bar-fill" :style="{
+                  width: calculatePercentage(team.total) + '%',
+                  background: team.color,
+                  padding: '5px',
+                  color: '#fff',
+                  'font-weight': 'bold',
+                  'font-size': '18px',
+                  height: '100% ',  // Adjust the height as needed
+                }">
+                  {{ team.total }}
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </div>
       </div>
     </div>
@@ -241,17 +243,18 @@ export default {
 
 <style scoped>
 .max-height-50 {
-    max-height: 40px !important;
-    height: 40px !important;
-    overflow: hidden !important;
-  }
-  .max-height-50 td,
-  .max-height-50 span,
-  .max-height-50 img {
-    height: 40px !important;
-    max-height: 40px !important;
-    overflow: hidden !important;
-  }
+  max-height: 40px !important;
+  height: 40px !important;
+  overflow: hidden !important;
+}
+
+.max-height-50 td,
+.max-height-50 span,
+.max-height-50 img {
+  height: 40px !important;
+  max-height: 40px !important;
+  overflow: hidden !important;
+}
 
 /* Add any additional styles as needed */
 .results tr {
@@ -297,5 +300,4 @@ export default {
 
 .result-table .logo {
   text-align: center;
-}
-</style>
+}</style>

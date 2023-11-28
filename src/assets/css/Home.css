@@ -1185,7 +1185,10 @@ body .news-container {
     position: relative;
     min-width: 380px;
   }
-
+  .popup.voting h3.t-2 {
+    font-size: 20px;
+    padding-top: 22px;
+}
   .top-footer {
     padding-top: 40px;
     width: 100%;

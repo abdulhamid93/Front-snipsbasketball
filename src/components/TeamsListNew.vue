@@ -65,31 +65,36 @@
       <div class="popup-content">
         <h2>Vote </h2>
         <hr>
-        <div class="row info">
-          <img :src="selectedTeam.logo" alt="" />
-          <div class="info-content">
-            <br>
-            <h3 class="t-2">{{ selectedTeam.name }}</h3>
-            <p><br></p>
+        <div v-if="!successVote">
+          <div class="row info">
+            <img :src="selectedTeam.logo" alt="" />
+            <div class="info-content">
+              <br>
+              <h3 class="t-2">{{ selectedTeam.name }}</h3>
+              <p><br></p>
+            </div>
+            <div class="total-votes">
+              <span>Total Votes</span>
+              {{ selectedTeam.total }}
+            </div>
           </div>
-          <div class="total-votes">
-            <span>Total Votes</span>
-            {{ selectedTeam.total }}
+          <div class="note note-warning">
+            <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
           </div>
-        </div>
-        <div class="note note-warning">
-          <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
-        </div>
-        <!-- <p>Enter Code</p> -->
-        <input v-model="token" type="text" placeholder="Enter your Code" />
-        <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
+          <!-- <p>Enter Code</p> -->
+          <input v-model="token" type="text" placeholder="Enter your Code" />
+          <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
 
-        <!-- Message Display -->
-        <div v-if="isMessageVisible" :class="['message', messageType]">
-          {{ message }}
+          <!-- Message Display -->
+          <div v-if="isMessageVisible" :class="['message', messageType]">
+            {{ message }}
+          </div>
+          <button class="btn submit blog-slider__button" @click="sendBroadcast(selectedTeam)">VOTE NOW</button>
+          <button class="btn close" @click="isPopupOpen = false">X</button>
         </div>
-        <button class="btn submit blog-slider__button" @click="sendBroadcast(selectedTeam)">VOTE NOW</button>
-        <button class="btn close" @click="isPopupOpen = false">X</button>
+        <div v-if="successVote">
+          <h3 class="success thank">Thank You For your Voting.</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -116,6 +121,7 @@ export default {
       mobile: null,
       isPopupOpen: false,
       selectedTeam: null,
+      successVote: false,
       message: '',
       isMessageVisible: false,
       messageType: '',
@@ -220,34 +226,36 @@ export default {
     },
     async sendBroadcast(team) {
       if (!this.isValidPhoneNumber(this.mobile) && this.mobile) {
-         this.showMessage("Mobile Number is invalid.", 'error');
+        this.showMessage("Mobile Number is invalid.", 'error');
       } else {
         try {
-        const response = await axios.post(
-          'https://staging.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
-        );
-        //status
-        console.log('response.data:', response.data.status);
-        // Check the response status
-        if (response.data.status == "error") {
+          const response = await axios.post(
+            'https://staging.snipsbasketball.com/api/v1/vote',
+            { team_id: team.id, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
+          );
+          //status
+          console.log('response.data:', response.data.status);
+          // Check the response status
+          if (response.data.status == "error") {
 
-          // Display error message with animation
-          this.showMessage(response.data.message, 'error');
-        } else if (response.data.status == "success") {
-          // Display success message with animation
-          this.mobile = null;
-          this.token = null;
-          this.showMessage(response.data.message, 'success');
-          setTimeout(() => { this.isPopupOpen = false; }, 5000);
+            // Display error message with animation
+            this.showMessage(response.data.message, 'error');
+          } else if (response.data.status == "success") {
+            // Display success message with animation
+            this.successVote = true;
+            this.mobile = null;
+            this.token = null;
+            this.showMessage(response.data.message, 'success');
+
+            setTimeout(() => { this.isPopupOpen = false; window.location.replace("https://shop.difcogroup.com/"); }, 5000);
+          }
+
+        } catch (error) {
+          console.error('Error sending broadcast:', error);
         }
-
-      } catch (error) {
-        console.error('Error sending broadcast:', error);
-      }
       }
       console.log('Broadcasting for team:', team);
-      
+
     },
   },
 
@@ -262,6 +270,11 @@ export default {
 
 * {
   box-sizing: border-box;
+}
+
+h3.success.thank {
+  padding: 20px;
+  color: #fff;
 }
 
 h3.t-2 {
