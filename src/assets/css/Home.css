@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://staging.snipsbasketball.com/storage/general/slide-1.webp");
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://app.snipsbasketball.com/storage/general/slide-1.webp");
   background-position: 50% 50%;
 }
 
 .hero-section {
   position: relative;
-  padding: 100px 0px 100px 50px;
-  background-image: url("https://staging.snipsbasketball.com/storage/general/banner.jpg");
+  padding: 30px 0px 30px 50px;
+  background-image: url("https://app.snipsbasketball.com/storage/general/banner.jpg");
 }
 
 .desktop {
@@ -38,16 +38,28 @@
 
 }
 
-.hero-text-box h2 span {
-  display: initial;
-  background-color: red;
-  font-weight: bold;
-  font-size: 92px;
-  line-height: 105px;
-  padding: 10px;
-  font-family: 'Bebas Neue', sans-serif;
+.hero-text-box h2 span.line2{
+  margin-top: -15px;
 }
+.hero-text-box h2 span {
+  
+  font-weight: 500;
+  font-size: 92px;
+  line-height: 84px;
+  padding: 8px 10px 2px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  display: inline-block;
+  background-color: red;
+}
+h2.hero-text-style-2{
+  margin-bottom: 4px!important;
 
+}
+.hero-text-box h3{
+  padding-left: 11px!important;
+  line-height: 60px;
+}
 .hero-text-style-1 {
   font-size: 30px !important;
   font-weight: 300 !important;
@@ -584,6 +596,17 @@ ul.menu.sub-menu--slideLeft {
   margin: 20px 0 0;
 }
 
+.Shop-title.center span{
+  color: #231f20!important;
+  font-size:18px!important;
+  margin-left: 5px!important;
+}
+.Shop-title.center a{
+line-height: 40px;
+}
+
+
+
 @media (max-width: 1199px) {
   .u-section-2 .u-group-1 {
     height: auto;
@@ -668,7 +691,7 @@ ul.menu.sub-menu--slideLeft {
 
 .u-section-3 .u-image-1 {
   min-height: 377px;
-  background-image: url("https://staging.snipsbasketball.com/storage/general/387733601-18240166144239747-8244885066973916456-n.jpg");
+  background-image: url("https://app.snipsbasketball.com/storage/general/387733601-18240166144239747-8244885066973916456-n.jpg");
   background-position: 50% 50%;
   --animation-custom_in-translate_x: 0px;
   --animation-custom_in-translate_y: 300px;
@@ -713,7 +736,7 @@ body .u-palette-5-dark-3 {
 
 .u-section-3 .u-image-2 {
   min-height: 381px;
-  background-image: url("https://staging.snipsbasketball.com/storage/general/391745058-18241162480239747-3186500525571121561-n.jpg");
+  background-image: url("https://app.snipsbasketball.com/storage/general/391745058-18241162480239747-3186500525571121561-n.jpg");
   background-position: 50% 50%;
   --animation-custom_in-translate_x: 0px;
   --animation-custom_in-translate_y: -300px;
@@ -728,7 +751,7 @@ body .u-palette-5-dark-3 {
 
 .u-section-3 .u-image-3 {
   min-height: 374px;
-  background-image: url("https://staging.snipsbasketball.com/storage/general/395236549-18242281039239747-8776666491168435554-n.jpg");
+  background-image: url("https://app.snipsbasketball.com/storage/general/395236549-18242281039239747-8776666491168435554-n.jpg");
   background-position: 50% 50%;
   --animation-custom_in-translate_x: 0px;
   --animation-custom_in-translate_y: 300px;
@@ -1173,6 +1196,10 @@ body .news-container {
     display: none;
   }
 
+  li.last {
+    display: inline-block !important;
+  }
+
   .page-footer .address {
     width: 100%;
   }
@@ -1183,12 +1210,14 @@ body .news-container {
 
   .popup-content {
     position: relative;
-    min-width: 380px;
+    min-width: 350px;
   }
+
   .popup.voting h3.t-2 {
     font-size: 20px;
     padding-top: 22px;
-}
+  }
+
   .top-footer {
     padding-top: 40px;
     width: 100%;
@@ -1243,6 +1272,7 @@ body .news-container {
 
   .res-table {
     width: 55%;
+    padding: 5px;
   }
 
   .hero-text-box h2 span {

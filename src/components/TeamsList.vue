@@ -110,7 +110,7 @@ export default {
       console.log('Broadcasting for team:', team);
       try {
         const response = await axios.post(
-          'https://staging.snipsbasketball.com/api/v1/vote',
+          'https://app.snipsbasketball.com/api/v1/vote',
           { team_id: team.id,mobile:this.mobile, token: this.token, ip: '192.0.0.0' }
         );
         //status

@@ -36,13 +36,13 @@
             <div class="container">
                 <div class=" top-footer">
                     <div class="logo-footer">
-                        <a href="/"> <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
-                                alt="snipsbasketball" height="80"></a>
+                        <a href="/"> <img src="https://app.snipsbasketball.com/storage/general/snips-logo.png"
+                                alt="snipsbasketball" height="86"></a>
                         <ul class="social">
-                            <a href="/" class="social-item"><img src="./assets/img/insta-icon.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/fb-icon.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/tick-icon.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/youtube-icon.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/icon-insta.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/icon-fb.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/icon-tiktok.png"/></a>
+                            <a href="/" class="social-item"><img src="./assets/img/icon-yt.png"/></a>
                            
                         </ul>
                     </div>
@@ -110,7 +110,8 @@ ul.social{
 }
 ul.social .social-item img{
     width: 30px;
-    /* height: 30px; */
+    padding: 2px;
+    margin: 1px;
 
 }
 .page-copyright ul {
@@ -134,6 +135,8 @@ li.last {
 .page-copyright ul li a {
     font-size: 15px;
     font-weight: 500;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .page-footer{
     background-color: #d1d3d4;
@@ -153,6 +156,7 @@ body .page-footer__bottom {
     width: 290px;
     display: inline-block;
     vertical-align: top;
+    padding-left: 20px;
 }
 
 .top-footer {
@@ -160,15 +164,17 @@ body .page-footer__bottom {
     width: 420px;
     margin: 0 auto;
     display: block;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
     margin: 0 auto;
 }
 
 .page-footer .address p {
-    padding-left: 10px;
-    margin-top: 0px;
+    padding-left: 15px;
+    margin-top: 15px;
     margin-bottom: 20px;
     font-weight: 500;
+    line-height: 20px;
+    font-size: 16px;
 }
 .page-copyright {
   text-align: center; /* Center the content */
@@ -179,4 +185,10 @@ body .page-footer__bottom {
     margin-bottom: 10px;
     line-height: 1.2;
 }
+body .page-footer__bottom {
+    
+    padding: 0px 0 5px;}
+    body   .page-copyright ul {
+    /* width: 400px; */
+    margin-top: 0px;}
 </style>

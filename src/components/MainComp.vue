@@ -2,7 +2,7 @@
     <section class="Shop-container " id="" data-image-width="1980">
         <div class="Shop-title center">
             <a href="http://shop.difcogroup.com/" class="Shop-logo">
-                <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
+                <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball"
                     height="60">
                 <span style="font-size:22px;margin-left: 20px;color:#000;text-transform: uppercase;">Shop Now At Difco Delivery</span>
             </a>
@@ -42,19 +42,19 @@
         <div class="Download-title center">
             <div class="Download-logo" >
                 <div>
-                    <img src="https://staging.snipsbasketball.com/storage/general/shipping.png" alt="snipsbasketball"
-                        height="80">
+                    <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball"
+                        height="65">
                 </div>
-                <div>
-                    <span style="    margin-left: 15px;
+                <div class="stores-cc">
+                    <span style="    
     color: #000;
     font-weight: 500;
-    font-size: 17px;">Download the DIFCO DELIVERY App</span>
+    font-size: 16px;">Download the DIFCO DELIVERY App</span>
                     <div class="stores">
-                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img src="https://staging.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
-                            height="40"></a>
-                       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img src="https://staging.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
-                            height="40"></a> 
+                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img src="https://app.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
+                            height="37"></a>
+                       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img src="https://app.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
+                            height="37"></a> 
                     </div>
 
                 </div>
@@ -63,7 +63,7 @@
         </div>
     </section>
     <div class="go_top" :class="{ 'show_go_top': showGoTop }" @click="goToTop">
-        <img src="https://staging.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
+        <img src="https://app.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
     </div>
 </template>
 

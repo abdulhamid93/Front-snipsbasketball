@@ -27,7 +27,7 @@ app.config.globalProperties.$moment = moment;
 // Fetch data and provide it to the entire application
 (async () => {
   try {
-    const response = await axios.post('https://staging.snipsbasketball.com/api/v1/team-list');
+    const response = await axios.post('https://app.snipsbasketball.com/api/v1/team-list');
     const teams = response.data.teams;
 
     // Update the 'updated_at' field for each team

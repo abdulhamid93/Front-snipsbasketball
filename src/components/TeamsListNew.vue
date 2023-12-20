@@ -17,8 +17,8 @@
           <img :src="team.logo" alt="" />
           <div class="blog-slider__title">{{ team.name }}</div>
 
-          <span class="blog-slider__code">Total Votes: {{ team.total }}</span>
-          <span class="blog-slider__code">Last Voting: {{ team.updated_at }}</span>
+          <span class="blog-slider__code">Total Votes: {{ team.total }}<br>
+            Last Voting: {{ team.updated_at }}</span>
           <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
           <a @click="openPopup(team)" class="blog-slider__button">VOTE NOW </a>
         </div>
@@ -169,7 +169,7 @@ export default {
     // subscribe to channel
     const echo = new LaravelEcho({
       broadcaster: 'pusher',
-      key: '46bb874b7ddecccc4d34',
+      key: '6bc7ba1172f908246ab6',
       cluster: 'eu',
       encrypted: true,
     });
@@ -230,7 +230,7 @@ export default {
       } else {
         try {
           const response = await axios.post(
-            'https://staging.snipsbasketball.com/api/v1/vote',
+            'https://app.snipsbasketball.com/api/v1/vote',
             { team_id: team.id, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
           );
           //status
@@ -370,7 +370,7 @@ hr:not([size]) {
 
 .blog-slider .blog-slider__button {
   display: inline-flex;
-  background-image: linear-gradient(147deg, #000 0%, #555 74%);
+  background-image: linear-gradient(147deg, #231f20 0%, #231f20 74%);
   padding: 7px 12px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -404,7 +404,7 @@ hr:not([size]) {
   display: inline-block;
   width: 18%;
   background: #d1d3d4;
-  box-shadow: 0px 8px 18px rgba(34, 35, 58, 0.2);
+  /* box-shadow: 0px 8px 18px rgba(34, 35, 58, 0.2); */
   padding: 12px;
   border-radius: 25px;
   min-height: 280px;
@@ -639,7 +639,7 @@ p.u-large-text {
 
 .blog-slider__title {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 400;
   color: #0d0925;
   margin-bottom: 10px;
 }
@@ -654,7 +654,7 @@ p.u-large-text {
 
 .blog-slider__button {
   display: inline-flex;
-  background-image: linear-gradient(147deg, #000 12%, #555 74%);
+  background-image: linear-gradient(147deg, #000 12%, #231f20 74%);
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
@@ -669,6 +669,10 @@ p.u-large-text {
 @media screen and (max-width: 576px) {
   .blog-slider__button {
     width: 100%;
+  }
+
+  .result-table  td.result-team.logo {
+    width: 60px;
   }
 }
 

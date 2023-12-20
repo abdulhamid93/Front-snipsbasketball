@@ -4,7 +4,7 @@
     <div class="">
       <div class="row">
         <div class="col-md-4 col-sm-6 main-logo-img">
-          <img src="https://staging.snipsbasketball.com/storage/general/logo-1.png" />
+          <img src="https://app.snipsbasketball.com/storage/general/logo-1.png" />
           <div class="hero-text-box mobile">
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
               <span>& SUPPORT</span>
@@ -15,25 +15,27 @@
         <div class="col-md-4 col-sm-6 desktop">
           <div class="hero-text-box ">
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
-              <span>& SUPPORT</span>
+              <span class="line2">& SUPPORT</span>
             </h2>
             <h3>YOUR FAVOURITE<br>TEAM!</h3>
           </div>
         </div>
         <div class="col-md-4 col-sm-12 mx-auto res-table">
-          <h4 style="margin-left: 20%; color: #fff; font-weight: bold;">LIVE RANKINGS</h4>
+          <h4 style="margin-left: 65px; color: #fff; font-weight: bold;">LIVE RANKINGS</h4>
           <tbody class="result-table">
-            <tr v-for="(team, index) in teams" :key="index" class="max-height-50">
-              <td class="result-team logo" style="width: 25%; text-align: center; max-height: 40px;">
+            <tr v-for="(team, index) in teams" :key="index" class="max-height-50" v-bind:class="{ last: index==teams.length-1 }">
+              <td class="result-team logo" style=" max-height: 40px;">
                 <span
                   style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{
                     index + 1 }}</span>
-                <img :src="team.light_logo" width="40" style="max-height: 40px !important;" />
+                <img :src="team.light_logo" class="team-logo" />
                 <span style="max-height: 40px !important; overflow: hidden !important;"></span>
               </td>
+
               <td style="position: relative; width: 75%; max-height: 40px !important;">
                 <div class="bar-fill" :style="{
                   width: calculatePercentage(team.total) + '%',
+                  position: 'relative',
                   background: team.color,
                   padding: '5px',
                   color: '#fff',
@@ -41,7 +43,7 @@
                   'font-size': '18px',
                   height: '100% ',  // Adjust the height as needed
                 }">
-                  {{ team.total }}
+                  <span>{{ team.total }}</span>
                 </div>
               </td>
             </tr>
@@ -79,7 +81,7 @@
     <div class="modal-content">
       <span class="close" @click="closeModal">&times;</span>
       <h2 class="p-title">
-        <img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80" />
+        <img src="https://app.snipsbasketball.com/storage/general/snips-logo.png" alt="snipsbasketball" height="80" />
         <span style="margin-left: 20px; color: #df2020">live Results:</span>
       </h2>
       <!-- <table>
@@ -158,7 +160,7 @@ export default {
     // subscribe to channel
     const echo = new LaravelEcho({
       broadcaster: 'pusher',
-      key: '46bb874b7ddecccc4d34',
+      key: '6bc7ba1172f908246ab6',
       cluster: 'eu',
       encrypted: true,
     });
@@ -241,7 +243,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .max-height-50 {
   max-height: 40px !important;
   height: 40px !important;
@@ -251,7 +253,7 @@ export default {
 .max-height-50 td,
 .max-height-50 span,
 .max-height-50 img {
-  height: 40px !important;
+  height: 36px !important;
   max-height: 40px !important;
   overflow: hidden !important;
 }
@@ -300,4 +302,62 @@ export default {
 
 .result-table .logo {
   text-align: center;
-}</style>
+}
+@media (max-width: 1280px) {
+  .Download-container .stores img {
+    margin: 0px!important;
+    margin-right: 5px!important;
+}
+.Download-container .stores-cc{
+  margin-left: 15px;
+}
+.stores-cc span{
+  margin-bottom: 6px;
+  display: block;
+}
+body .Shop-container img {
+   width: 40px!important;
+   height: 40px!important;
+ }
+ .result-team  .team-logo{
+float: right;
+ }
+ .result-table .result-team.logo{
+   width: 65px;
+ }
+ .result-table .result-team.logo span{
+   width: 15px;
+   margin-right: 5px;
+   color: rgb(255, 255, 255);
+   max-height: 40px !important;
+   margin-left: 5px;
+   font-size: 18px;
+   line-height: 40px;
+   overflow: hidden !important;
+ }
+ .result-table .last  .result-team.logo img{
+   width: 38px;
+ }
+ div.bar-fill span{
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   height: auto!important;
+   line-height: 20px;
+ }
+ .desktop .res-table h4{
+   margin-left: 65px;
+ }
+
+ .max-height-50.last span{
+  margin-left: -5px!important;
+ }
+}
+@media (max-width: 600px) {
+  .result-table td.result-team.logo {
+    width: 60px;
+    display: block;
+}
+
+}
+</style>

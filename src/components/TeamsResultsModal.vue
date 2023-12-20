@@ -2,7 +2,7 @@
     <div class="modal" v-if="showModal">
         <div class="modal-content">
             <span class="close" @click="closeModal">&times;</span>
-            <h2 class="p-title"><img src="https://staging.snipsbasketball.com/storage/general/snips-logo.png"
+            <h2 class="p-title"><img src="https://app.snipsbasketball.com/storage/general/snips-logo.png"
                     alt="snipsbasketball" height="80">
                 <span style="margin-left: 20px;color:#df2020">live Results:</span>
             </h2>
@@ -78,7 +78,7 @@ export default {
         // subscribe to channel
         const echo = new LaravelEcho({
             broadcaster: 'pusher',
-            key: '46bb874b7ddecccc4d34',
+            key: '6bc7ba1172f908246ab6',
             cluster: 'eu',
             encrypted: true,
         });

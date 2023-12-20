@@ -1,1 +1,1 @@
-export const baseURL = 'https://staging.snipsbasketball.com';
+export const baseURL = 'https://app.snipsbasketball.com';
