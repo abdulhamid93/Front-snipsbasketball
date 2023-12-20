@@ -149,4 +149,15 @@ export default {
 .Shop-title.center span {
     font-weight: bold;
 }
+@media (min-width: 768px) {
+
+.stores-cc{
+  margin-left: 15px;
+}
+.Download-container .stores img {
+  padding: 0px;
+  margin: 2px;
+  border-radius: 5px;
+}
+}
 </style>

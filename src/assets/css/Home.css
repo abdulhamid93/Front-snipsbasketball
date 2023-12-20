@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .u-section-1 {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("https://app.snipsbasketball.com/storage/general/slide-1.webp");
   background-position: 50% 50%;
@@ -38,11 +39,12 @@
 
 }
 
-.hero-text-box h2 span.line2{
+.hero-text-box h2 span.line2 {
   margin-top: -15px;
 }
+
 .hero-text-box h2 span {
-  
+
   font-weight: 500;
   font-size: 92px;
   line-height: 84px;
@@ -52,14 +54,17 @@
   display: inline-block;
   background-color: red;
 }
-h2.hero-text-style-2{
-  margin-bottom: 4px!important;
+
+h2.hero-text-style-2 {
+  margin-bottom: 4px !important;
 
 }
-.hero-text-box h3{
-  padding-left: 11px!important;
+
+.hero-text-box h3 {
+  padding-left: 11px !important;
   line-height: 60px;
 }
+
 .hero-text-style-1 {
   font-size: 30px !important;
   font-weight: 300 !important;
@@ -596,13 +601,14 @@ ul.menu.sub-menu--slideLeft {
   margin: 20px 0 0;
 }
 
-.Shop-title.center span{
-  color: #231f20!important;
-  font-size:18px!important;
-  margin-left: 5px!important;
+.Shop-title.center span {
+  color: #231f20 !important;
+  font-size: 18px !important;
+  margin-left: 5px !important;
 }
-.Shop-title.center a{
-line-height: 40px;
+
+.Shop-title.center a {
+  line-height: 40px;
 }
 
 
@@ -1202,6 +1208,7 @@ body .news-container {
 
   .page-footer .address {
     width: 100%;
+    padding-left: 0px;
   }
 
   .mobile {
@@ -1230,8 +1237,8 @@ body .news-container {
     margin: 0 auto;
   }
 
-  .Download-container img {
-    height: 70px;
+  .Download-container .stores  img {
+    height: 34px;
   }
 
   .blog-slider__title {
@@ -1242,15 +1249,33 @@ body .news-container {
     font-size: 15px !important;
   }
 
-  .Download-container .stores img {
-    height: 30px;
+  .result-table .max-height-50 img {
+    height: 33px !important;
+    max-height: 40px !important;
+    overflow: hidden !important;
   }
 
+  .Download-container .result-team.logo img {
+    height: 35px;
+  }
+
+  .result-table .max-height-50.last span {
+    margin-left: -10px !important;
+  }
+
+  .u-repeater-teams  .blog-slider__code {
+    font-size: 11px;
+  }
   .page-footer .address p {
+    padding-left: 0px;
+    text-align: left;
+    width: 65%;
+    margin: 0 auto;
 
-    text-align: center;
   }
-
+.res-table h4{
+  font-size: 16px;
+}
   .page-copyright ul li {
 
     display: block;
@@ -1262,12 +1287,14 @@ body .news-container {
   }
 
   body .result-team span {
-    font-weight: 900;
-    margin-left: 5px;
+    font-weight: 700;
+    margin-left: 2px;
+
   }
 
   .main-logo-img {
     width: 45%;
+    padding: 0px;
   }
 
   .res-table {
@@ -1277,8 +1304,8 @@ body .news-container {
 
   .hero-text-box h2 span {
 
-    font-size: 26px;
-    line-height: 28px;
+    font-size: 36px;
+    line-height: 35px;
 
   }
 
@@ -1300,6 +1327,7 @@ body .news-container {
   .hero-text-box h3 {
     color: #ffffff;
     font-size: 26px;
+    line-height: 30px;
   }
 
   .result-table td {
