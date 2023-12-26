@@ -63,7 +63,7 @@ h2.hero-text-style-2 {
 
 .hero-text-box h3 {
   padding-left: 11px !important;
-  line-height: 60px!important;
+  line-height: 55px!important;
 }
 
 .hero-text-style-1 {
@@ -237,8 +237,8 @@ h2.hero-text-style-2 {
 }
 
 .hero-text-box {
-  margin-top: 20%;
-  /* margin-left: 5.5vw; */
+  margin-top: 20px;
+  margin-left: 2.5vw;
 }
 
 .hero-section .hero-text-style-1,
@@ -1207,10 +1207,10 @@ body .news-container {
     display: inline-block !important;
   }
 
-  .page-footer .address {
+  /* .page-footer .address {
     width: 100%;
     padding-left: 0px;
-  }
+  } */
 
   .mobile {
     display: block;
@@ -1226,17 +1226,17 @@ body .news-container {
     padding-top: 22px;
   }
 
-  .top-footer {
+  /* .top-footer {
     padding-top: 40px;
     width: 100%;
-  }
+  } */
 
-  .page-footer .logo-footer {
+  /* .page-footer .logo-footer {
     display: block;
     width: 130px;
     vertical-align: top;
     margin: 0 auto;
-  }
+  } */
 
   .Download-container .stores  img {
     height: 34px;
@@ -1270,7 +1270,7 @@ body .news-container {
   .page-footer .address p {
     padding-left: 0px;
     text-align: left;
-    width: 65%;
+    /* width: 65%; */
     margin: 0 auto;
 
   }
@@ -1321,8 +1321,8 @@ font-weight: 400!important;
   }
 
   .hero-text-box {
-    margin-top: 20%;
-    margin-left: 5.5vw;
+    margin-top: 10px; 
+     margin-left: 0vw;
   }
 
  .hero-text-box h3  {
@@ -1449,7 +1449,27 @@ font-weight: 400!important;
   .u-section-3 {
     min-height: 2146px;
   }
+  .top-footer {
+    padding-top: 40px;
+    width: 100%;
 
+  }
+.page-footer .logo-footer {
+    display: block;
+    width: 130px;
+    vertical-align: top;
+    margin: 0 auto;
+}
+.page-footer .address p {
+  padding-left: 0px;
+  text-align: left;
+  width: 65%;
+  margin: 0 auto;
+}
+.page-footer .address {
+  width: 100%;
+  padding-left: 0px;
+}
   .u-section-3 .u-layout-wrap-1 {
     width: 340px;
   }

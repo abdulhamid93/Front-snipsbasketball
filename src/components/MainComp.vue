@@ -171,13 +171,31 @@ export default {
     }
     .page-copyright ul li {
     font-weight: 400!important;}
+    .hero-section .hero-text-box{
+        margin-top: 20%!important;
+    }
+    
 }
-
+@media (max-width: 600px) {
+.section.hero-section .hero-text-box h3 {
+        color: #ffffff;
+        font-size: 27px !important;
+        line-height: 27px !important;
+        letter-spacing: 0px!important;
+        padding-left: 8px !important;
+    }
+    .Download-container .Download-logo {
+    
+  
+    margin-top: 5px;
+}
+}
 @media (max-width: 400px) {
     .section.hero-section .hero-text-box h3 {
         color: #ffffff;
         font-size: 26px !important;
-        line-height: 30px !important;
+        line-height: 26px !important;
+        letter-spacing: 0px!important;
     }
 
 }</style>

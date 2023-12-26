@@ -711,7 +711,27 @@ p.u-large-text {
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
 }
-
+@media screen and (max-width: 900px) {
+  .hero-text-box h2 span {
+    font-weight: 500;
+    font-size: 53px;
+    line-height: 50px;
+    padding: 9px 10px 0px;}
+    .hero-text-box h3{
+      font-size: 38px;
+      line-height: 40px!important;
+    }
+    .hero-text-box h2 span.line2 {
+    margin-top: -7px;
+    display: block;
+}
+.result-table .result-team.logo span{
+  margin-left: 0px!important;
+}
+.result-table .max-height-50.last span {
+    margin-left: -10px!important;
+}
+}
 @media screen and (max-width: 768px) {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 5px;
@@ -746,6 +766,7 @@ p.u-large-text {
     min-height: 500px;
     height: auto;
     margin: 50px auto;
+    margin-bottom: 5px!important;
   }
 
   popup-content {

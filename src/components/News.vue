@@ -2,14 +2,12 @@
 <template>
   <section class="section hero-section bg-image context-dark">
     <div class="">
-      <div class="row">
+      <div class="row p-0 m-0">
         <div class="col-md-4 col-sm-6 main-logo-img">
           <img src="https://app.snipsbasketball.com/storage/general/logo-1.png" />
           <div class="hero-text-box mobile">
-            <h2 class="hero-text-style-2"><span>VOTE</span><br>
-              <span>& SUPPORT</span>
-            </h2>
-            <h3>YOUR FAVOURITE<br>TEAM!</h3>
+            <img class="mobile-vote" src="./../assets/img/vote-2.png">
+            <!-- <h3>YOUR FAVOURITE<br>TEAM!</h3> -->
           </div>
         </div>
         <div class="col-md-4 col-sm-6 desktop">
@@ -17,6 +15,7 @@
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
               <span class="line2">& SUPPORT</span>
             </h2>
+            
             <h3>YOUR FAVOURITE<br>TEAM!</h3>
           </div>
         </div>
@@ -303,6 +302,9 @@ export default {
 .result-table .logo {
   text-align: center;
 }
+.mobile-vote{
+  display: none;
+}
 @media (max-width: 1280px) {
   .Download-container .stores img {
     margin: 0px!important;
@@ -353,11 +355,20 @@ float: right;
   margin-left: -5px!important;
  }
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .result-table td.result-team.logo {
     width: 60px;
     display: block;
 }
-
+.mobile-vote{
+  display: block;
+  padding-right: 5px;
+}
+.hero-text-box h3 {
+    
+  font-size: 40px!important;
+    line-height: 36px!important;
+    letter-spacing: 2px;
+}
 }
 </style>
