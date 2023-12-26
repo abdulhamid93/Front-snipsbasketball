@@ -134,7 +134,7 @@ li.last {
 
 .page-copyright ul li a {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -172,7 +172,7 @@ body .page-footer__bottom {
     padding-left: 15px;
     margin-top: 15px;
     margin-bottom: 20px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 20px;
     font-size: 16px;
 }

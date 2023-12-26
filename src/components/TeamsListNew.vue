@@ -18,7 +18,7 @@
           <div class="blog-slider__title">{{ team.name }}</div>
 
           <span class="blog-slider__code">Total Votes: {{ team.total }}<br>
-            Last Voting: {{ team.updated_at }}</span>
+            <span class="last-voting"> Last Voting: {{ team.updated_at }} </span></span>
           <!-- <div class="blog-slider__text">{{ team.summary }}</div> -->
           <a @click="openPopup(team)" class="blog-slider__button">VOTE NOW </a>
         </div>
@@ -365,7 +365,7 @@ hr:not([size]) {
 }
 
 .popup-content {
-  width: 65%;
+  width: 50%;
 }
 
 .blog-slider .blog-slider__button {
@@ -671,7 +671,7 @@ p.u-large-text {
     width: 100%;
   }
 
-  .result-table  td.result-team.logo {
+  .result-table td.result-team.logo {
     width: 60px;
   }
 }
@@ -778,5 +778,34 @@ p.u-large-text {
     height: 11px;
     width: 30px;
   }
+
+  .last-voting {
+    font-size: 10px;
+  }
+
+  .res-table h4 {
+
+    margin-left: 28px !important;
+  }
 }
-</style>
+
+@media (max-width: 400px) {
+  .hero-text-box h2 span {
+    font-size: 33px;
+    line-height: 35px;
+  }
+
+  .popup.voting img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+  .info .info-content {
+    text-align: left;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+  .page-footer .address {
+    margin-bottom: 10px;
+  }
+}</style>

@@ -2,9 +2,9 @@
     <section class="Shop-container " id="" data-image-width="1980">
         <div class="Shop-title center">
             <a href="http://shop.difcogroup.com/" class="Shop-logo">
-                <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball"
-                    height="60">
-                <span style="font-size:22px;margin-left: 20px;color:#000;text-transform: uppercase;">Shop Now At Difco Delivery</span>
+                <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball" height="60">
+                <span style="font-size:22px;margin-left: 20px;color:#000;text-transform: uppercase;">Shop Now At Difco
+                    Delivery</span>
             </a>
         </div>
     </section>
@@ -40,21 +40,22 @@
     <!-- <TeamsList></TeamsList> -->
     <section class="Download-container " id="" data-image-width="1980">
         <div class="Download-title center">
-            <div class="Download-logo" >
+            <div class="Download-logo">
                 <div>
-                    <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball"
-                        height="65">
+                    <img src="../assets/img/logo-Difco Delivery.png" alt="snipsbasketball" height="65">
                 </div>
                 <div class="stores-cc">
                     <span style="    
     color: #000;
-    font-weight: 500;
-    font-size: 16px;">Download the DIFCO DELIVERY App</span>
+    font-weight: 400;
+    font-size: 16.5px;">Download the DIFCO DELIVERY App</span>
                     <div class="stores">
-                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img src="https://app.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
-                            height="37"></a>
-                       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img src="https://app.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
-                            height="37"></a> 
+                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img
+                                src="https://app.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
+                                height="37"></a>
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img
+                                src="https://app.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
+                                height="37"></a>
                     </div>
 
                 </div>
@@ -123,24 +124,31 @@ export default {
     background: #a6a6a6;
     padding: 5px;
 }
-.Download-container{
+
+.Download-container {
     background: #fff;
     padding: 5px;
 }
-.Shop-container img ,.Download-container img{
+
+.Shop-container img,
+.Download-container img {
     border-radius: 5px;
 }
-.Download-container .stores img{
+
+.Download-container .stores img {
     padding: 0px;
     margin: 12px;
     border-radius: 5px;
 }
-.Download-container .Download-logo{
+
+.Download-container .Download-logo {
     display: flex;
     margin-top: 40px;
     margin-bottom: 50px;
 }
-.Shop-title.center,.Download-title.center {
+
+.Shop-title.center,
+.Download-title.center {
     display: table;
     margin: 0 auto;
     font-weight: bold;
@@ -149,15 +157,27 @@ export default {
 .Shop-title.center span {
     font-weight: bold;
 }
+
 @media (min-width: 768px) {
 
-.stores-cc{
-  margin-left: 15px;
+    .stores-cc {
+        margin-left: 15px;
+    }
+
+    .Download-container .stores img {
+        padding: 0px;
+        margin: 2px;
+        border-radius: 5px;
+    }
+    .page-copyright ul li {
+    font-weight: 400!important;}
 }
-.Download-container .stores img {
-  padding: 0px;
-  margin: 2px;
-  border-radius: 5px;
-}
-}
-</style>
+
+@media (max-width: 400px) {
+    .section.hero-section .hero-text-box h3 {
+        color: #ffffff;
+        font-size: 26px !important;
+        line-height: 30px !important;
+    }
+
+}</style>

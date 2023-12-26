@@ -36,7 +36,8 @@
   color: #ffffff;
   font-size: 60px;
   font-family: 'Bebas Neue', sans-serif;
-
+  line-height: 55px!important;
+  margin-top: 8px;
 }
 
 .hero-text-box h2 span.line2 {
@@ -62,7 +63,7 @@ h2.hero-text-style-2 {
 
 .hero-text-box h3 {
   padding-left: 11px !important;
-  line-height: 60px;
+  line-height: 60px!important;
 }
 
 .hero-text-style-1 {
@@ -1277,7 +1278,7 @@ body .news-container {
   font-size: 16px;
 }
   .page-copyright ul li {
-
+font-weight: 400!important;
     display: block;
   }
 
@@ -1324,7 +1325,7 @@ body .news-container {
     margin-left: 5.5vw;
   }
 
-  .hero-text-box h3 {
+ .hero-text-box h3  {
     color: #ffffff;
     font-size: 26px;
     line-height: 30px;
