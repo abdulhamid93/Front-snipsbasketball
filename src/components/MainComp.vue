@@ -35,7 +35,7 @@
 
     <!-- <Countdown></Countdown> -->
     <News @open-popup-in-c2="openPopupInC2"></News>
-    <br><br>
+    
     <TeamsListNew></TeamsListNew>
     <!-- <TeamsList></TeamsList> -->
     <section class="Download-container " id="" data-image-width="1980">

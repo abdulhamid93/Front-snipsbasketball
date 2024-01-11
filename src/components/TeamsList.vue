@@ -40,8 +40,9 @@
         <h2>Vote for {{ selectedTeam.name }}</h2>
         <img :src="selectedTeam.logo" alt="" />
         <!-- <p>Enter Code</p> -->
-        <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
-        <input v-model="token" type="text" placeholder="Enter your Code" />
+        <input v-model="name" type="text" placeholder="Enter your Full Name (ادخل الأسم الكامل)" />
+        <input v-model="mobile" type="text" placeholder="Enter your Mobile (ادخل رقم الموبايل)" />
+        <input v-model="token" type="text" placeholder="Enter your Code (ادخل الكود)" />
         <!-- Message Display -->
         <div v-if="isMessageVisible" :class="['message', messageType]">
           {{ message }}
@@ -111,7 +112,7 @@ export default {
       try {
         const response = await axios.post(
           'https://app.snipsbasketball.com/api/v1/vote',
-          { team_id: team.id,mobile:this.mobile, token: this.token, ip: '192.0.0.0' }
+          { team_id: team.id,name:this.name,mobile:this.mobile, token: this.token, ip: '192.0.0.0' }
         );
         //status
         console.log('response.data:', response.data.status);

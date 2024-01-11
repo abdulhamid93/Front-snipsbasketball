@@ -1,6 +1,48 @@
 
 <template>
-  <section class="section hero-section bg-image context-dark">
+  <div>
+    <div class="desktop" style=";background:url(https://app.snipsbasketball.com/storage/general/snips-basketball-hero.jpg) ;background-size: cover;">
+      <img class="main-img " src="https://app.snipsbasketball.com/storage/general/snips-basketball-hero.jpg" style="opacity: 0;">
+    </div>
+    <img class="mobile" src="./../assets/img/SNIPS-basketball-hero-mobile.jpg">
+  </div>
+  <section class="section  bg-image context-dark">
+
+
+    <div>
+      <div class="team-bar-container">
+        <div v-for="(team, index) in teams" :key="index" class="team-bar"
+          v-bind:class="{ last: index == teams.length - 1 }">
+
+
+          <div class="team-bar" style="position: relative;">
+            <div class="bar">
+              <div class="bar-fill" :style="{
+                height: (calculatePercentage(team.total) * 3.2) + '%',
+                position: 'relative',
+                background: team.color,
+                padding: '5px',
+                color: '#fff',
+                'font-weight': 'bold',
+                'font-size': '18px',
+                width: '100% ',  // Adjust the height as needed
+              }">
+
+              </div>
+              <span class="total">{{ calculatePercentage(team.total) }}%</span>
+            </div>
+
+            <img :src="team.logo" class="team-logo" />
+            <span class="number">{{
+              index + 1 }}</span>
+          </div>
+
+        </div>
+      </div>
+      <h4 class="live-ranking">LIVE RANKINGS (% of $100K)</h4>
+    </div>
+  </section>
+  <section v-if="1 == 0" class="section hero-section bg-image context-dark">
     <div class="">
       <div class="row p-0 m-0">
         <div class="col-md-4 col-sm-6 main-logo-img">
@@ -15,14 +57,15 @@
             <h2 class="hero-text-style-2"><span>VOTE</span><br>
               <span class="line2">& SUPPORT</span>
             </h2>
-            
+
             <h3>YOUR FAVOURITE<br>TEAM!</h3>
           </div>
         </div>
         <div class="col-md-4 col-sm-12 mx-auto res-table">
           <h4 style="margin-left: 65px; color: #fff; font-weight: bold;">LIVE RANKINGS</h4>
           <tbody class="result-table">
-            <tr v-for="(team, index) in teams" :key="index" class="max-height-50" v-bind:class="{ last: index==teams.length-1 }">
+            <tr v-for="(team, index) in teams" :key="index" class="max-height-50"
+              v-bind:class="{ last: index == teams.length - 1 }">
               <td class="result-team logo" style=" max-height: 40px;">
                 <span
                   style="margin-right: 5px; color: #fff; max-height: 40px !important; font-size: 18px; overflow: hidden !important;">{{
@@ -243,6 +286,66 @@ export default {
 
 
 <style >
+.team-bar {
+  display: inline-block;
+  width: 70px;
+  padding: 5px;
+}
+
+.live-ranking {
+  color: rgb(237, 28, 36);
+  font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.team-bar .bar {
+  min-height: 200px;
+  position: relative;
+}
+
+.team-bar .bar .bar-fill {
+  position: absolute !important;
+  ;
+  bottom: 5px;
+}
+
+.blog-slider .blog-slider__button:hover {
+  background: rgb(237, 28, 36);
+}
+
+.team-bar .bar span.total {
+  vertical-align: super;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  color: #000;
+  line-height: 60px;
+  position: absolute;
+  bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.team-bar-container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.number {
+  margin-right: 5px;
+  color: #000;
+  max-height: 40px !important;
+  font-size: 26px;
+  font-weight: 900;
+  overflow: hidden !important;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
 .max-height-50 {
   max-height: 40px !important;
   height: 40px !important;
@@ -302,73 +405,153 @@ export default {
 .result-table .logo {
   text-align: center;
 }
-.mobile-vote{
+
+.mobile-vote {
   display: none;
 }
+
 @media (max-width: 1280px) {
   .Download-container .stores img {
-    margin: 0px!important;
-    margin-right: 5px!important;
-}
-.Download-container .stores-cc{
-  margin-left: 15px;
-}
-.stores-cc span{
-  margin-bottom: 6px;
-  display: block;
-}
-body .Shop-container img {
-   width: 40px!important;
-   height: 40px!important;
- }
- .result-team  .team-logo{
-float: right;
- }
- .result-table .result-team.logo{
-   width: 65px;
- }
- .result-table .result-team.logo span{
-   width: 15px;
-   margin-right: 5px;
-   color: rgb(255, 255, 255);
-   max-height: 40px !important;
-   margin-left: 5px;
-   font-size: 18px;
-   line-height: 40px;
-   overflow: hidden !important;
- }
- .result-table .last  .result-team.logo img{
-   width: 38px;
- }
- div.bar-fill span{
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   height: auto!important;
-   line-height: 20px;
- }
- .desktop .res-table h4{
-   margin-left: 65px;
- }
+    margin: 0px !important;
+    margin-right: 5px !important;
+  }
 
- .max-height-50.last span{
-  margin-left: -5px!important;
- }
+  .Download-container .stores-cc {
+    margin-left: 15px;
+  }
+  .team-bar .bar span.total {
+    line-height: 56px;
+    bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
 }
+  .team-bar-container {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  div.bar-fill span {
+    font-size: 16px;
+    line-height: 45px !important;
+  }
+
+  .team-bar {
+    width: 60px;
+    padding: 3px;
+  }
+
+  .stores-cc span {
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  body .Shop-container img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .result-team .team-logo {
+    float: right;
+  }
+
+  .result-table .result-team.logo {
+    width: 65px;
+  }
+
+  .result-table .result-team.logo span {
+    width: 15px;
+    margin-right: 5px;
+    color: rgb(255, 255, 255);
+    max-height: 40px !important;
+    margin-left: 5px;
+    font-size: 18px;
+    line-height: 40px;
+    overflow: hidden !important;
+  }
+
+  .result-table .last .result-team.logo img {
+    width: 38px;
+  }
+
+  div.bar-fill span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto !important;
+    line-height: 20px;
+  }
+
+  .desktop .res-table h4 {
+    margin-left: 65px;
+  }
+
+  .max-height-50.last span {
+    margin-left: -5px !important;
+  }
+}
+
 @media (max-width: 768px) {
+  .team-bar {
+    width: 38px;
+    padding: 2px;
+  }
+
+  .live-ranking {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .team-bar-container {
+    width: 380px;
+    margin: 0 auto;
+  }
+
+  .team-bar img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .team-bar .bar span.total {
+    vertical-align: super;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    white-space: nowrap;
+    line-height: 35px;
+  }
+
   .result-table td.result-team.logo {
     width: 60px;
     display: block;
-}
-.mobile-vote{
-  display: block;
-  padding-right: 5px;
-}
-.hero-text-box h3 {
-    
-  font-size: 40px!important;
-    line-height: 36px!important;
+  }
+
+  .mobile-vote {
+    display: block;
+    padding-right: 5px;
+  }
+
+  .hero-text-box h3 {
+
+    font-size: 40px !important;
+    line-height: 36px !important;
     letter-spacing: 2px;
+  }
+
 }
+
+@media (max-width: 400px) {
+  .team-bar {
+    width: 35px;
+    padding: 1px;
+  }
+  .team-bar .bar span.total {
+    line-height: 32px;
+    bottom: 15px;
+    font-size: 15px;
+    font-weight: 400;
+}
+  .team-bar-container {
+    width: 350px;
+    margin: 0 auto;
+  }
 }
 </style>

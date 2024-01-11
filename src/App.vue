@@ -36,13 +36,13 @@
             <div class="container">
                 <div class=" top-footer">
                     <div class="logo-footer">
-                        <a href="/"> <img src="https://app.snipsbasketball.com/storage/general/snips-logo.png"
+                        <a href="https://snipssnacks.com/"> <img src="https://app.snipsbasketball.com/storage/general/snips-logo.png"
                                 alt="snipsbasketball" height="86"></a>
                         <ul class="social">
-                            <a href="/" class="social-item"><img src="./assets/img/icon-insta.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/icon-fb.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/icon-tiktok.png"/></a>
-                            <a href="/" class="social-item"><img src="./assets/img/icon-yt.png"/></a>
+                            <a href="https://www.instagram.com/snipsbakedsnacks/" class="social-item"><img src="./assets/img/icon-insta.png"/></a>
+                            <a href="https://www.facebook.com/SnipsBakedSnacks" class="social-item"><img src="./assets/img/icon-fb.png"/></a>
+                            <a href="https://www.tiktok.com/@snipsbakedsnacks" class="social-item"><img src="./assets/img/icon-tiktok.png"/></a>
+                            <a href="https://www.youtube.com/@SnipsBakedSnacks" class="social-item"><img src="./assets/img/icon-yt.png"/></a>
                            
                         </ul>
                     </div>
@@ -62,9 +62,9 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="page-copyright">
                                 <ul>
-                                    <li><a href="/privacy-policy">PRIVACY POLICY </a></li>
-                                    <li><a href="/terms">TERMS & CONDITIONS</a></li>
-                                    <li><a href="/cookie">COOKIE PREFERENCES</a></li>
+                                    <li><a target="_blank" href="/privacy-policy">PRIVACY POLICY </a></li>
+                                    <li><a target="_blank" href="/terms">TERMS & CONDITIONS</a></li>
+                                    <li><a target="_blank" href="/cookie">COOKIE PREFERENCES</a></li>
                                     <li class="last">©2023 snipsbasketball. All right reserved.</li>
                                 </ul>
                                 <div style="text-align: center;">

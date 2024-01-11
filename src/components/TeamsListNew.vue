@@ -82,8 +82,10 @@
             <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
           </div>
           <!-- <p>Enter Code</p> -->
-          <input v-model="token" type="text" placeholder="Enter your Code" />
-          <input v-model="mobile" type="text" placeholder="Enter your Mobile" />
+          <input v-model="token" type="text" placeholder="Enter your Code : أدخل الرمز" />
+          <input v-model="name" type="text" placeholder="Enter your Full Name : ادخل الأسم الكامل" />
+        <input v-model="mobile" type="text" placeholder="Enter your Mobile : أدخل رقم الهاتف" />
+        
 
           <!-- Message Display -->
           <div v-if="isMessageVisible" :class="['message', messageType]">
@@ -119,6 +121,7 @@ export default {
     return {
       token: null,
       mobile: null,
+      name: null,
       isPopupOpen: false,
       selectedTeam: null,
       successVote: false,
@@ -227,11 +230,13 @@ export default {
     async sendBroadcast(team) {
       if (!this.isValidPhoneNumber(this.mobile) && this.mobile) {
         this.showMessage("Mobile Number is invalid.", 'error');
+      } else if (!this.name || this.name == '') {
+        this.showMessage("Full name is required.", 'error');
       } else {
         try {
           const response = await axios.post(
             'https://app.snipsbasketball.com/api/v1/vote',
-            { team_id: team.id, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
+            { team_id: team.id, name: this.name, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
           );
           //status
           console.log('response.data:', response.data.status);
@@ -360,8 +365,8 @@ hr:not([size]) {
 }
 
 .blog-slider .blog-slider__button:hover {
-  background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
-
+  background-image: linear-gradient(147deg, #231f20 0%, #231f20 74%);
+  color: #f2f2f2;
 }
 
 .popup-content {
@@ -493,6 +498,7 @@ p.u-large-text {
   transform: none;
 }
 
+/* 
 .blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(1) {
   transition-delay: 0.3s;
 }
@@ -547,7 +553,7 @@ p.u-large-text {
 
 .blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(14) {
   transition-delay: 1.6s;
-}
+} */
 
 .blog-slider__item.swiper-slide-active .blog-slider__content>*:nth-child(15) {
   transition-delay: 1.7s;
@@ -658,7 +664,7 @@ p.u-large-text {
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
-  box-shadow: 0px 14px 80px rgba(22, 56, 56, 0.4);
+  /* box-shadow: 0px 14px 80px rgba(22, 56, 56, 0.4); */
   text-decoration: none;
   font-weight: 500;
   justify-content: center;
@@ -696,6 +702,10 @@ p.u-large-text {
   transform: translateY(-50%);
 }
 
+.blog-slider.u-repeater-teams {
+  max-width: 1366px;
+}
+
 @media screen and (max-width: 768px) {
   .blog-slider__pagination {
     transform: translateX(-50%);
@@ -711,27 +721,34 @@ p.u-large-text {
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
 }
+
 @media screen and (max-width: 900px) {
   .hero-text-box h2 span {
     font-weight: 500;
     font-size: 53px;
     line-height: 50px;
-    padding: 9px 10px 0px;}
-    .hero-text-box h3{
-      font-size: 38px;
-      line-height: 40px!important;
-    }
-    .hero-text-box h2 span.line2 {
+    padding: 9px 10px 0px;
+  }
+
+  .hero-text-box h3 {
+    font-size: 38px;
+    line-height: 40px !important;
+  }
+
+  .hero-text-box h2 span.line2 {
     margin-top: -7px;
     display: block;
+  }
+
+  .result-table .result-team.logo span {
+    margin-left: 0px !important;
+  }
+
+  .result-table .max-height-50.last span {
+    margin-left: -10px !important;
+  }
 }
-.result-table .result-team.logo span{
-  margin-left: 0px!important;
-}
-.result-table .max-height-50.last span {
-    margin-left: -10px!important;
-}
-}
+
 @media screen and (max-width: 768px) {
   .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 5px;
@@ -766,7 +783,7 @@ p.u-large-text {
     min-height: 500px;
     height: auto;
     margin: 50px auto;
-    margin-bottom: 5px!important;
+    margin-bottom: 5px !important;
   }
 
   popup-content {
@@ -821,11 +838,13 @@ p.u-large-text {
     height: 100px;
     margin-right: 10px;
   }
+
   .info .info-content {
     text-align: left;
     padding-left: 100px;
     padding-right: 100px;
-}
+  }
+
   .page-footer .address {
     margin-bottom: 10px;
   }
