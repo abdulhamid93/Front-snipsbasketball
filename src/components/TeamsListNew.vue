@@ -82,10 +82,12 @@
             <p><i class="fa fa-info-circle "></i> Please note that the Code is valid for a single use only.</p>
           </div>
           <!-- <p>Enter Code</p> -->
-          <input v-model="token" type="text" placeholder="Enter your Code : أدخل الرمز" />
-          <input v-model="name" type="text" placeholder="Enter your Full Name : ادخل الأسم الكامل" />
-        <input v-model="mobile" type="text" placeholder="Enter your Mobile : أدخل رقم الهاتف" />
-        
+          <input v-model="token" type="text" placeholder="Enter the Code : أدخل الرمز" />
+          <input v-model="first_name" type="text" placeholder="Enter Your First Name : أدخل الإسم" />
+          <input v-model="middle_name" type="text" placeholder="Enter Your Middle Name : أدخل إسم الأب" />
+          <input v-model="last_name" type="text" placeholder="Enter Your Last Name : أدخل الشهرة " />
+          <input v-model="mobile" type="text" placeholder="Enter your Mobile : أدخل رقم الهاتف" />
+
 
           <!-- Message Display -->
           <div v-if="isMessageVisible" :class="['message', messageType]">
@@ -95,7 +97,10 @@
           <button class="btn close" @click="isPopupOpen = false">X</button>
         </div>
         <div v-if="successVote">
-          <h3 class="success thank">Thank You For your Voting.</h3>
+          <h3 class="success thank">Dear {{ first_name }} {{ middle_name }} {{ last_name }}, thank you for your vote for
+            {{ selectedTeam.name }} team with the code {{ token }}.<br>
+            Please store this message as a proof of vote.
+          </h3>
         </div>
       </div>
     </div>
@@ -121,7 +126,9 @@ export default {
     return {
       token: null,
       mobile: null,
-      name: null,
+      first_name: null,
+      middle_name: null,
+      last_name: null,
       isPopupOpen: false,
       selectedTeam: null,
       successVote: false,
@@ -228,15 +235,18 @@ export default {
       return phoneNumberPattern.test(phoneNumber);
     },
     async sendBroadcast(team) {
-      if (!this.isValidPhoneNumber(this.mobile) && this.mobile) {
+      if (!this.token || this.token == '') {
+        this.showMessage("Code is required.", 'error');
+      }
+      else if (!this.isValidPhoneNumber(this.mobile) && this.mobile) {
         this.showMessage("Mobile Number is invalid.", 'error');
-      } else if (!this.name || this.name == '') {
-        this.showMessage("Full name is required.", 'error');
+      } else if ((!this.first_name || this.first_name == '') || (!this.last_name || this.last_name == '')) {
+        this.showMessage("First name and Last Name are required.", 'error');
       } else {
         try {
           const response = await axios.post(
             'https://app.snipsbasketball.com/api/v1/vote',
-            { team_id: team.id, name: this.name, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
+            { team_id: team.id, name: this.first_name + ' ' + this.middle_name + ' ' + this.last_name, mobile: this.mobile, token: this.token, ip: '192.0.0.0' }
           );
           //status
           console.log('response.data:', response.data.status);
@@ -248,8 +258,8 @@ export default {
           } else if (response.data.status == "success") {
             // Display success message with animation
             this.successVote = true;
-            this.mobile = null;
-            this.token = null;
+            //this.mobile = null;
+            // this.token = null;
             this.showMessage(response.data.message, 'success');
 
             setTimeout(() => { this.isPopupOpen = false; window.location.replace("https://shop.difcogroup.com/"); }, 5000);
@@ -286,6 +296,11 @@ h3.t-2 {
   font-size: 40px;
 }
 
+.success.thank {
+  text-align: center;
+  font-size: 14px;
+}
+
 .blog-slider__content img {
   margin: 0 auto;
   width: 66%;
@@ -312,7 +327,7 @@ hr:not([size]) {
 }
 
 .note {
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 5px 10px 5px 5px;
   border-left: 5px solid #eeeeee;
   border-radius: 0 4px 4px 0;
@@ -326,8 +341,9 @@ hr:not([size]) {
 
 .popup.voting img {
   width: 120px;
-  height: 120px;
+  /* height: 120px; */
   margin-right: 20px;
+  margin-top: 15px;
 }
 
 .info {
@@ -410,9 +426,9 @@ hr:not([size]) {
   width: 18%;
   background: #d1d3d4;
   /* box-shadow: 0px 8px 18px rgba(34, 35, 58, 0.2); */
-  padding: 12px;
+  padding: 18px 12px;
   border-radius: 25px;
-  min-height: 280px;
+
   margin-bottom: 33px;
   margin-right: 1%;
   margin-left: 1%;
@@ -835,8 +851,9 @@ p.u-large-text {
 
   .popup.voting img {
     width: 100px;
-    height: 100px;
-    margin-right: 10px;
+    /* height: 120px; */
+    margin-right: 20px;
+    margin-top: 15px;
   }
 
   .info .info-content {

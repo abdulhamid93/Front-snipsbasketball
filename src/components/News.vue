@@ -1,11 +1,19 @@
 
 <template>
   <div>
-    <div class="desktop" style=";background:url(https://app.snipsbasketball.com/storage/general/snips-basketball-hero.jpg) ;background-size: cover;">
-      <img class="main-img " src="https://app.snipsbasketball.com/storage/general/snips-basketball-hero.jpg" style="opacity: 0;">
+    <div class="desktop"
+    :style="{ background: 'url(' + hero_img + ')', backgroundSize: 'cover' }">
+      <img class="main-img " :src="hero_img"
+        style="opacity: 0;">
     </div>
-    <img class="mobile" src="./../assets/img/SNIPS-basketball-hero-mobile.jpg">
+    <img class="mobile" :src="hero_img_mobile">
   </div>
+  <section class="section next-draw-section">
+    <div>
+      <h3 class="next-draw-h3">{{ next_draw }}</h3>
+    </div>
+  </section>
+
   <section class="section  bg-image context-dark">
 
 
@@ -39,7 +47,7 @@
 
         </div>
       </div>
-      <h4 class="live-ranking">LIVE RANKINGS (% of $100K)</h4>
+      <h4 class="live-ranking">{{ live_ranking_text }}</h4>
     </div>
   </section>
   <section v-if="1 == 0" class="section hero-section bg-image context-dark">
@@ -164,7 +172,7 @@ import Pusher from 'pusher-js';
 
 // Enable pusher logging - don't include this in production
 // Pusher.logToConsole = true;
-
+//live_ranking_text next_draw app_store_link google_play_link   this.app_store_link = inject('app_store_link');
 import eventBus from './../eventBus';
 import { useRoute } from 'vue-router';
 import moment from 'moment';
@@ -179,12 +187,20 @@ export default {
       openPopupInC2: false,
       teams: [],
       changedTeam: null, // New property to store the changed team
+      hero_img: '',
+      hero_img_mobile: '',
+      live_ranking_text:'',
+      next_draw:'',
     };
   },
 
   created: function () {
     this.teams = inject('teams');
+    this.live_ranking_text = inject('live_ranking_text');
+    this.next_draw = inject('next_draw');
     this.sortTeamsByTotal();
+    this.hero_img = inject('hero_img');
+    this.hero_img_mobile = inject('hero_img_mobile');
   },
   mounted: function () {
     const route = useRoute();
@@ -410,6 +426,21 @@ export default {
   display: none;
 }
 
+.next-draw-section {
+  text-align: center;
+  margin: 0;
+  background: #ed1c24;
+  padding: 12px;
+  color: white;
+}
+
+.next-draw-h3 {
+  font-size: 22px;
+  margin: 0;
+  color: white;
+  FONT-WEIGHT: 700;
+}
+
 @media (max-width: 1280px) {
   .Download-container .stores img {
     margin: 0px !important;
@@ -419,12 +450,14 @@ export default {
   .Download-container .stores-cc {
     margin-left: 15px;
   }
+
   .team-bar .bar span.total {
     line-height: 56px;
     bottom: 15px;
     font-size: 16px;
     font-weight: 500;
-}
+  }
+
   .team-bar-container {
     width: 600px;
     margin: 0 auto;
@@ -543,12 +576,14 @@ export default {
     width: 35px;
     padding: 1px;
   }
+
   .team-bar .bar span.total {
     line-height: 32px;
     bottom: 15px;
     font-size: 15px;
     font-weight: 400;
-}
+  }
+
   .team-bar-container {
     width: 350px;
     margin: 0 auto;

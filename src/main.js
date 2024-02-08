@@ -29,7 +29,14 @@ app.config.globalProperties.$moment = moment;
   try {
     const response = await axios.post('https://app.snipsbasketball.com/api/v1/team-list');
     const teams = response.data.teams;
-
+    const hero_img = response.data.hero_img;
+    const hero_img_mobile = response.data.hero_img_mobile;
+    const snips_description = response.data.snips_description;
+    const live_ranking_text = response.data.live_ranking_text;
+    const next_draw = response.data.next_draw;
+    const app_store_link = response.data.app_store_link;
+    const google_play_link = response.data.google_play_link;
+    
     // Update the 'updated_at' field for each team
     teams.forEach(team => {
       team.updated_at = moment(team.updated_at).fromNow();
@@ -37,6 +44,15 @@ app.config.globalProperties.$moment = moment;
 
     // Provide the 'teams' data to the application
     app.provide('teams', teams);
+    app.provide('hero_img', hero_img);
+    app.provide('hero_img_mobile', hero_img_mobile);
+    app.provide('snips_description', snips_description);
+
+    app.provide('live_ranking_text', live_ranking_text);
+    app.provide('next_draw', next_draw);
+    app.provide('app_store_link', app_store_link);
+    app.provide('google_play_link', google_play_link);
+    
     app.provide('openPopupInC2', false);
     app.use(router).use(store).use(vuetify).mount('#app');
   } catch (error) {

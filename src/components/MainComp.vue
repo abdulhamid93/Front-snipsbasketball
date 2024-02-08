@@ -35,9 +35,17 @@
 
     <!-- <Countdown></Countdown> -->
     <News @open-popup-in-c2="openPopupInC2"></News>
-    
+
     <TeamsListNew></TeamsListNew>
-    <!-- <TeamsList></TeamsList> -->
+    <section class="text-container ">
+        <p>
+          {{ snips_description }}
+
+        </p>
+
+    </section>
+
+
     <section class="Download-container " id="" data-image-width="1980">
         <div class="Download-title center">
             <div class="Download-logo">
@@ -50,10 +58,10 @@
     font-weight: 400;
     font-size: 16.5px;">Download the DIFCO DELIVERY App</span>
                     <div class="stores">
-                        <a target="_blank" href="https://apps.apple.com/lb/app/difco-delivery/id1566110141"> <img
+                        <a target="_blank" :href="app_store_link"> <img
                                 src="https://app.snipsbasketball.com/storage/general/app.png" alt="snipsbasketball"
                                 height="37"></a>
-                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.in2uitions.difco"><img
+                        <a target="_blank" :href="google_play_link"><img
                                 src="https://app.snipsbasketball.com/storage/general/google.png" alt="snipsbasketball"
                                 height="37"></a>
                     </div>
@@ -64,7 +72,7 @@
         </div>
     </section>
     <div class="go_top" :class="{ 'show_go_top': showGoTop }" @click="goToTop">
-        <img src="https://app.snipsbasketball.com/storage/general/top1.png" alt="basketball-sroll-to-up">
+        <img src="./../assets/img/basketball-loop.gif" alt="basketball-sroll-to-up">
     </div>
 </template>
 
@@ -87,10 +95,19 @@ export default {
             teams: [
             ],
             showGoTop: false,
+            snips_description:'',
+            hero_img:'',
+            hero_img_mobile:'',
+            app_store_link:'',
+            google_play_link:'',
         };
     },
     components: { TeamsList, TeamsResultsModal, News, TeamsListNew, Countdown },
     mounted() {
+        this.app_store_link = inject('app_store_link');
+        this.google_play_link = inject('google_play_link');
+
+        this.snips_description = inject('snips_description');
         console.log('test on mounted');
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', this.handleScroll);
@@ -120,6 +137,20 @@ export default {
 };
 </script>
 <style>
+.text-container {
+    width: 80%;
+    padding: 18px 12px;
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+
+.text-container p {
+    width: 80%;
+    padding: 0 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .Shop-container {
     background: #a6a6a6;
     padding: 5px;
@@ -169,33 +200,49 @@ export default {
         margin: 2px;
         border-radius: 5px;
     }
+
     .page-copyright ul li {
-    font-weight: 400!important;}
-    .hero-section .hero-text-box{
-        margin-top: 20%!important;
+        font-weight: 400 !important;
     }
+
+    .hero-section .hero-text-box {
+        margin-top: 20% !important;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .text-container {
+    width: 100%;
     
 }
-@media (max-width: 600px) {
-.section.hero-section .hero-text-box h3 {
+
+.text-container p {
+    width: 90%;
+    margin-bottom: 45px;
+    
+}
+    .section.hero-section .hero-text-box h3 {
         color: #ffffff;
         font-size: 27px !important;
         line-height: 27px !important;
-        letter-spacing: 0px!important;
+        letter-spacing: 0px !important;
         padding-left: 8px !important;
     }
+
     .Download-container .Download-logo {
-    
-  
-    margin-top: 5px;
+
+
+        margin-top: 5px;
+    }
 }
-}
+
 @media (max-width: 400px) {
     .section.hero-section .hero-text-box h3 {
         color: #ffffff;
         font-size: 26px !important;
         line-height: 26px !important;
-        letter-spacing: 0px!important;
+        letter-spacing: 0px !important;
     }
 
 }</style>
