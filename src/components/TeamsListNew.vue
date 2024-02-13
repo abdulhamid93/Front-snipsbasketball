@@ -101,6 +101,8 @@
             {{ selectedTeam.name }} team with the code {{ token }}.<br>
             Please store this message as a proof of vote.
           </h3>
+          <br>
+          <a class="btn submit blog-slider__button" href='http://shop.difcogroup.com/'>Close</a>
         </div>
       </div>
     </div>
@@ -235,6 +237,7 @@ export default {
       return phoneNumberPattern.test(phoneNumber);
     },
     async sendBroadcast(team) {
+      //window.open("https://shop.difcogroup.com/", '_blank').focus();
       if (!this.token || this.token == '') {
         this.showMessage("Code is required.", 'error');
       }
@@ -262,7 +265,7 @@ export default {
             // this.token = null;
             this.showMessage(response.data.message, 'success');
 
-            setTimeout(() => { this.isPopupOpen = false; window.location.replace("https://shop.difcogroup.com/"); }, 5000);
+            setTimeout(() => { this.isPopupOpen = false;window.open("https://shop.difcogroup.com/", '_blank').focus(); }, 5000);
           }
 
         } catch (error) {
