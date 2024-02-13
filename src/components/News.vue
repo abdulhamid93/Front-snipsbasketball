@@ -26,7 +26,7 @@
           <div class="team-bar" style="position: relative;">
             <div class="bar">
               <div class="bar-fill" :style="{
-                height: (calculatePercentage(team.total) * 3.2) + '%',
+                height: (calculatePercentage(team.total) * 1.5) + '%',
                 position: 'relative',
                 background: team.color,
                 padding: '5px',
